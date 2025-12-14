@@ -532,3 +532,145 @@ margin-left: 15%;
     height: 250px;
   }
 }
+/* ===============================
+   MOBILE RESPONSIVE FIXES
+   =============================== */
+@media (max-width: 768px) {
+
+  /* GENERAL FIXES */
+  body {
+    overflow-x: hidden;
+    height: auto;
+  }
+
+  /* HERO SECTION */
+  .hero {
+    height: auto;
+    padding: 120px 20px 60px;
+  }
+
+  .hero h2 {
+    font-size: 36px;
+    line-height: 1.2;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* VIDEO TEXT */
+  .video-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .video-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .video-text p {
+    font-size: 1rem;
+  }
+
+  /* INFO SECTION */
+  .info-container {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .info-image {
+    height: 250px;
+  }
+
+  .info-text {
+    padding: 20px;
+  }
+
+  /* REMOVE ABSOLUTE TEXT THAT BREAKS MOBILE */
+  .vaya-text {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 40px auto;
+    text-align: center;
+  }
+
+  .vaya-text h1 {
+    margin: 0;
+    font-size: 20px;
+  }
+
+  /* QUICK FACTS SECTION */
+  .facts-container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .facts-left,
+  .facts-right {
+    width: 100%;
+    border: none;
+    padding: 0;
+  }
+
+  /* EAGLE / CROCODILE SECTION */
+  .eagle-section {
+    padding: 30px 15px;
+  }
+
+  .eagle-text h2 {
+    font-size: 1.8em;
+  }
+
+  .eagle-text p {
+    font-size: 1em;
+  }
+
+  /* IMAGE GRID FIX */
+  .eagle-images {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .image-row {
+    flex-direction: column;
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 100%;
+    height: 220px;
+    margin: 10px 0;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .text-box h1 {
+    font-size: 1em;
+  }
+
+  .text-box p {
+    font-size: 0.9em;
+  }
+
+  /* FOOTER FIX */
+  .footer {
+    margin-top: 0;
+    padding: 40px 20px;
+  }
+
+  .footer1 {
+    padding: 40px 20px;
+  }
+
+}
+
