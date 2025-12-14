@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Donations – Admin Dashboard</title>
+  <link rel="stylesheet" href="/css/admin.css">
+  <style>
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      background: #f8f9fa;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      margin-bottom: 1rem;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+    th, td {
+      padding: 12px 15px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+    th {
+      background: #007bff;
+      color: white;
+      text-transform: uppercase;
+      font-size: 13px;
+    }
+    tr:hover {
+      background: #f1f5ff;
+    }
+    img {
+      max-width: 120px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    img:hover {
+      transform: scale(1.1);
+    }
+    .back-btn {
+      display: inline-block;
+      margin-bottom: 1rem;
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border-radius: 4px;
+      text-decoration: none;
+    }
+    .back-btn:hover {
+      background: #0056b3;
+    }
+    .empty {
+      text-align: center;
+      color: #777;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 6px;
+    }
+  </style>
+</head>
+<body>
+  <a href="/admin" class="back-btn">&larr; Back to Dashboard</a>
+  <h1>Donation Submissions</h1>
+
+  <% if (donations && donations.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Donor Name</th>
+          <th>Email</th>
+          <th>Amount (₱)</th>
+          <th>Receipt</th>
+          <th>Uploaded</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% donations.forEach((donation, index) => { %>
+          <tr>
+            <td><%= index + 1 %></td>
+            <td><%= donation.donor_name || "Anonymous" %></td>
+            <td><%= donation.donor_email || "—" %></td>
+            <td><%= donation.donation_amount?.toLocaleString() || "0.00" %></td>
+            <td>
+              <% if (donation.receiptFile) { %>
+                <a href="<%= donation.receiptFile %>" target="_blank">
+                  <img src="<%= donation.receiptFile %>" alt="Receipt">
+                </a>
+              <% } else { %>
+                No image
+              <% } %>
+            </td>
+            <td>
+              <%= new Date(donation.uploadedAt).toLocaleString("en-PH", {
+                dateStyle: "medium",
+                timeStyle: "short"
+              }) %>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <div class="empty">No donations yet.</div>
+  <% } %>
+</body>
+</html>

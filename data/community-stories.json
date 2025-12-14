@@ -1,0 +1,60 @@
+{
+  "title": "Mabuwaya | News & Updates",
+  "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "hero": {
+    "header": "News & Updates",
+    "subheader": "Latest stories and conservation milestones from the Mabuwaya Foundation."
+  },
+  "breakingNews": {
+    "title": "Breaking News",
+    "content": "A lost species rediscovered? A critically endangered species returned to its wild home?",
+    "media": {
+      "header": "Media Inquiries",
+      "contacts": ["Maynard Alzate", "Joshua Ranjo"],
+      "email": "press@mabuwaya.org"
+    }
+  },
+  "news": [
+    {
+      "image": "/images/ha.jpg",
+      "title": "Rare Crocodile Spotted in Isabela",
+      "description": "The critically endangered Philippine crocodile was sighted near a protected river zone."
+    },
+    {
+      "image": "basta.jpg",
+      "title": "Successful Nesting Season Reported",
+      "description": "Over 15 eggs hatched successfully—hope for the Philippine crocodile’s future."
+    },
+    {
+      "image": "ab.jpg",
+      "title": "Community Training on Crocodile Safety",
+      "description": "Residents were trained on peaceful co-existence with local crocodile populations."
+    }
+  ],
+  "footer": {
+    "office": {
+      "title": "Our Office",
+      "address": "San Mariano, Isabela<br>Philippines 3332"
+    },
+    "phone": {
+      "title": "Phone",
+      "numbers": ["+63 917 123 4567", "+63 78 123 4567"]
+    },
+    "email": {
+      "title": "Email",
+      "addresses": ["info@mabuwaya.org", "mabuwaya.foundation@gmail.com"]
+    },
+    "socials": [
+      { "platform": "facebook", "url": "https://www.facebook.com/mabuwaya" },
+      { "platform": "twitter", "url": "https://x.com/mabuwaya" },
+      { "platform": "instagram", "url": "https://www.instagram.com/mabuwayafoundation/" }
+    ]
+  }
+}

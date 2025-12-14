@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta-name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title || "Population Studies | Mabuwaya Foundation" %></title>
+  <link rel="stylesheet" href="/css/population.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .example-chart {
+      width: 100%;
+      max-width: 850px;
+      margin: 40px auto;
+      display: block;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+      background: white;
+    }
+    .example-chart svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* PDF SECTION */
+    .pdf-section {
+      margin: 60px 0;
+    }
+    .pdf-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    .pdf-item {
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+      text-decoration: none;
+      font-size: 18px;
+      color: #1c1c1c;
+      transition: 0.25s ease;
+    }
+    .pdf-item i {
+      font-size: 28px;
+      color: #e74c3c;
+      margin-right: 14px;
+    }
+    .pdf-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.12);
+    }
+
+    /* MODAL */
+    .pdf-modal {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      padding: 40px;
+    }
+    .pdf-modal-content {
+      margin: auto;
+      background: white;
+      border-radius: 14px;
+      max-width: 900px;
+      height: 90%;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    #pdfViewer {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    .pdf-close {
+      font-size: 32px;
+      cursor: pointer;
+      align-self: flex-end;
+    }
+    .pdf-download-btn {
+      margin-top: 15px;
+      padding: 12px 16px;
+      background: #e74c3c;
+      color: white;
+      text-align: center;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/">MABUWAYA FOUNDATION</a></h1>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/mission">Mission & Impact</a></li>
+        <li><a href="/advocacy">Advocacy & Awareness</a></li>
+        <li><a href="/engagement">Engagement & Support</a></li>
+        <li><a href="/stories">Community Stories & Voices</a></li>
+        <li><a href="/wildlife">Wildlife & Habitat Hub</a></li>
+        <li><a href="/gallery">Photo & Video Gallery</a></li>
+      </ul>
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-overlay">
+      <h2 class="page-title"><%= data.heroHeading || "Population Studies" %></h2>
+      <p><%= data.heroText || "Tracking and conserving the Philippine crocodile and its habitats" %></p>
+    </div>
+  </section>
+
+  <!-- ===== POPULATION DATA ===== -->
+  <section class="population-section">
+    <div class="container">
+
+      <h3><%= data.sectionHeading || "Understanding the Population" %></h3>
+      <p><%= data.description || "The Mabuwaya Foundation conducts research to monitor the population of the critically endangered Philippine crocodile." %></p>
+
+      <div class="stats-grid">
+        <% (data.stats || []).forEach(stat => { %>
+          <div class="stat-card">
+            <h4><%= stat.value %></h4>
+            <p><%= stat.text %></p>
+          </div>
+        <% }) %>
+      </div>
+
+      <!-- ===== CHART AREA ===== -->
+      <div class="chart-area">
+        <h3><%= data.chartHeading || "Population Growth Over Time" %></h3>
+
+        <% if (data.chartImage && data.chartImage.trim() !== '') { %>
+          <img src="<%= data.chartImage %>" alt="Population Chart" class="chart-img">
+        <% } else { %>
+          <div class="example-chart">
+            <svg viewBox="0 0 850 450" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="grad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#f1c40f" stop-opacity="0.9"/>
+                  <stop offset="100%" stop-color="#f1c40f" stop-opacity="0.1"/>
+                </linearGradient>
+              </defs>
+
+              <rect width="850" height="450" fill="#ffffff" rx="18"/>
+
+              <text x="425" y="55" text-anchor="middle" font-family="Poppins" font-size="30" font-weight="bold" fill="#114b2c">
+                Philippine Crocodile Population Growth
+              </text>
+
+              <text x="425" y="85" text-anchor="middle" font-family="Poppins" font-size="19" fill="#555">
+                San Mariano & Surrounding Areas (2015 – 2025)
+              </text>
+
+              <g stroke="#f0f0f0" stroke-width="1">
+                <line x1="100" y1="120" x2="750" y2="120"/>
+                <line x1="100" y1="200" x2="750" y2="200"/>
+                <line x1="100" y1="280" x2="750" y2="280"/>
+                <line x1="100" y1="360" x2="750" y2="360"/>
+              </g>
+
+              <path d="M120,360 L200,330 L280,290 L360,240 L440,180 L520,140 L600,110 L680,90 L730,80" 
+                    fill="none" stroke="#f1c40f" stroke-width="8" stroke-linecap="round"/>
+
+              <path d="M120,360 L200,330 L280,290 L360,240 L440,180 L520,140 L600,110 L680,90 L730,80 L730,380 L120,380 Z" 
+                    fill="url(#grad)"/>
+
+              <text x="120" y="410" font-family="Poppins" font-size="16" fill="#444">2015</text>
+              <text x="730" y="410" font-family="Poppins" font-size="16" fill="#444" text-anchor="end">2025</text>
+
+              <text x="70" y="130" font-family="Poppins" font-size="16" fill="#666">~250</text>
+              <text x="70" y="370" font-family="Poppins" font-size="16" fill="#666">~50</text>
+            </svg>
+          </div>
+        <% } %>
+      </div>
+
+      <!-- ===== DOWNLOADABLE PDF SECTION ===== -->
+      <section class="pdf-section">
+        <h3><%= data.pdfHeading || "Download Research Files" %></h3>
+        <p><%= data.pdfDescription || "Access detailed studies, surveys, and published research." %></p>
+
+<div class="pdf-list">
+
+  <% 
+    let pdfList = [];
+
+    if (Array.isArray(data.pdf)) {
+      pdfList = data.pdf;
+    } else if (typeof data.pdfFiles === "string" && data.pdfFiles.trim() !== "") {
+      pdfList = [{ name: data.pdfHeading || "Download PDF", file: data.pdfFiles }];
+    } else if (Array.isArray(data.pdfFiles)) {
+      pdfList = data.pdfFiles.map((file, i) => ({ name: `File ${i + 1}`, file }));
+    }
+  %>
+
+  <% pdfList.forEach(pdf => { %>
+    <a href="#" class="pdf-item open-pdf" data-file="<%= pdf.file %>">
+      <i class="fas fa-file-pdf"></i>
+      <span><%= pdf.name %></span>
+    </a>
+  <% }) %>
+
+</div>
+      </section>
+
+    </div>
+  </section>
+
+  <!-- ===== PDF PREVIEW MODAL ===== -->
+  <div id="pdfModal" class="pdf-modal">
+    <div class="pdf-modal-content">
+      <span id="closeModal" class="pdf-close">&times;</span>
+      <iframe id="pdfViewer" src="" frameborder="0"></iframe>
+      <a id="downloadBtn" href="#" download class="pdf-download-btn">Download PDF</a>
+    </div>
+  </div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p>San Mariano, Isabela<br>Philippines 3332</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p>+63 917 123 4567<br>+63 78 123 4567</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p>info@mabuwaya.org<br>mabuwaya.foundation@gmail.com</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/mabuwaya" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://x.com/mabuwaya" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/mabuwayafoundation/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+
+      </div>
+      <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+
+    document.querySelectorAll(".open-pdf").forEach(btn => {
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        let file = this.dataset.file;
+        document.getElementById("pdfViewer").src = file;
+        document.getElementById("downloadBtn").href = file;
+        document.getElementById("pdfModal").style.display = "block";
+      });
+    });
+
+    document.getElementById("closeModal").onclick = function () {
+      document.getElementById("pdfModal").style.display = "none";
+    };
+  </script>
+
+</body>
+</html>

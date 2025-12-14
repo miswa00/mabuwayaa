@@ -1,0 +1,408 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    height: 100vh;
+    background: url('ubo.jpg') no-repeat center center/cover;
+}
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(44, 62, 80, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(4px); /* Optional: Blur effect */
+}
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: white; /* adjust if your navbar text is another color */
+  padding: 5px;
+}
+
+.nav-links li a:hover {
+  color: white; /* keep text white when hovered */
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* space between text and underline */
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.logo a {
+    color: white;            /* Make text white */
+    text-decoration: none;   /* Remove underline */
+      /* Optional: make it bold */
+    font-size: 24px;  
+    padding: 3px;       /* Optional: increase font size */
+}
+
+.logo a:hover {
+    color: #cccccc;          /* Optional: change color on hover */
+}
+
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #34495e;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    top: 100%;
+}
+
+.dropdown-content li {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #1abc9c;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: white;
+}
+
+.dropdown .dropbtn {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown .dropbtn i {
+    margin-left: 5px;
+}
+
+
+
+/* Hero Section */
+.hero {
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+#bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.hero-content {
+    margin-left: -100px;
+    margin-right: -100px;
+    border-radius: 10px;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background: white;
+}
+
+/* Grid Section */
+.grid-section {
+    padding: 40px;
+    text-align: center;
+}
+.grid-container {
+    border-radius: 10vh;
+}
+
+.grid-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+.grid-subtitle {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 20px;
+}
+.grid-item {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.grid-item::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.grid-item span {
+    position: relative;
+    z-index: 1;
+    padding: 10px 20px;
+    border: 2px solid white;
+    margin-left: -28px;
+}
+.grid-text {
+    padding-left: 100vh;
+    color: white;
+}
+
+/* Add individual images */
+.grid-item:nth-child(1) {
+    background-image: url('ubo.jpg');
+}
+.grid-item:nth-child(2) {
+    background-image: url('basta.jpg');
+}
+.grid-item:nth-child(3) {
+    background-image: url('body.jpg');
+}
+.grid-item:nth-child(4) {
+    background-image: url('cultural-impact.jpg');
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        width: 150px;
+        text-align: center;
+        padding: 10px;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .menu-btn {
+        display: block;
+    }
+}
+
+.logo a {
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    padding: 3px;
+}
+.logo a:hover {
+    color: #cccccc;
+}
+
+/* Programs & Projects Section */
+.programs-section {
+    padding: 60px 20px;
+    background-color: #f5fdf8;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.programs-section h2 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.programs-section .intro {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #555;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    max-width: 1100px;
+    margin: 0 auto;
+    justify-items: center; /* keeps cards centered in row */
+}
+
+.program-card {
+    background-color: #fff;
+    padding: 25px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    max-width: 320px; /* ensures consistent width */
+}
+
+.program-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.2);
+}
+
+.program-card i {
+    font-size: 2.5rem;
+    color: #1a4d2e;
+    margin-bottom: 15px;
+}
+
+.program-card h3 {
+    font-size: 1.4rem;
+    color: #1a4d2e;
+    margin-bottom: 10px;
+}
+
+.program-card p {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+}
+
+
+.footer {
+    background: linear-gradient(135deg, #1e2a38, #2c3e50);
+    color: #f8f9fa;
+    padding: 50px 20px;
+    margin-top: 60px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.footer .container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-box h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #f1c40f;
+    font-weight: bold;
+    border-left: 4px solid #f1c40f;
+    padding-left: 10px;
+}
+
+.footer-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #dcdcdc;
+}
+
+/* Social Icons */
+.social-links a {
+    color: #f8f9fa;
+    font-size: 24px;
+    margin-right: 15px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+
+.social-links a:hover {
+    color: #f1c40f;
+    transform: translateY(-4px) scale(1.1);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    color: #bbb;
+}
+.footer-bottom a {
+    color: #f1c40f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-bottom a:hover {
+    color: #fff;
+}

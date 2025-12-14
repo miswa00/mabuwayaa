@@ -1,0 +1,221 @@
+/* ===== GLOBAL & BODY ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 0;
+    overflow-x: hidden;
+    background: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.88)), 
+                url('/images/ab.jpg') center/cover no-repeat fixed;
+    color: #2c3e50;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+/* ADD THESE 4 LINES ONLY — everything else stays the same */
+
+body {
+    background: linear-gradient(rgba(255,255,255,0.88), rgba(255,255,255,0.92)), 
+                url('/images/ab.jpg') center/cover no-repeat fixed !important;
+    background-attachment: fixed !important;
+}
+
+/* Make content cards slightly transparent so background shows through */
+
+/* ===== EXACT HOMEPAGE NAVBAR (unchanged – perfect) ===== */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(44, 62, 80, 0.92);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 8%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo a {
+    color: white !important;
+    text-decoration: none !important;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+.logo a::after { display: none !important; }
+
+.nav-links { list-style: none; display: flex; gap: 42px; margin: 0; padding: 0; }
+.nav-links li { position: relative; }
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.08rem;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+    transition: color 0.3s ease;
+}
+.nav-links li a::after {
+    content: ""; position: absolute; left: 0; bottom: -6px;
+    width: 0; height: 2.5px; background: white; transition: width 0.35s ease;
+}
+.nav-links li a:hover::after { width: 100%; }
+.nav-links li a:hover { color: white; }
+
+.menu-btn { display: none; cursor: pointer; }
+.menu-btn .bar { width: 28px; height: 3px; background: white; margin: 6px 0; border-radius: 3px; }
+
+/* Mobile Menu */
+@media (max-width: 768px) {
+    .navbar { padding: 18px 5%; }
+    .nav-links {
+        position: fixed; top: 78px; left: 0; width: 100%;
+        background: rgba(44, 62, 80, 0.98); backdrop-filter: blur(15px);
+        flex-direction: column; padding: 25px 0; display: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .nav-links.active { display: flex; }
+    .nav-links li { margin: 12px 0; text-align: center; }
+    .menu-btn { display: block; }
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+    height: 90vh;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), url('/images/ab.jpg') center/cover no-repeat fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+.hero-text {
+    max-width: 900px;
+    padding: 0 20px;
+}
+.hero-text h2 {
+    font-size: 4.8rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+.hero-text p {
+    font-size: 1.45rem;
+    opacity: 0.95;
+}
+
+/* ===== CONTENT SECTIONS – Now with subtle background image visible ===== */
+.habitat-info {
+    padding: 100px 5%;
+    background: transparent; /* Let body background show through */
+}
+.habitat-container {
+    max-width: 1300px;
+    margin: 0 auto 80px;
+    display: flex;
+    align-items: center;
+    gap: 70px;
+    flex-wrap: wrap;
+    background: rgba(255, 255, 255, 0.92);   /* White card with slight transparency */
+    padding: 50px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+.habitat-container.reverse { flex-direction: row-reverse; }
+
+.habitat-text { flex: 1; min-width: 320px; }
+.habitat-text h3 {
+    font-size: 2.5rem;
+    color: #1a4d2e;
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+.habitat-text h3::after {
+    content: ''; position: absolute; left: 0; bottom: -12px;
+    width: 80px; height: 5px; background: #f1c40f; border-radius: 3px;
+}
+.habitat-text p {
+    font-size: 1.15rem;
+    color: #444;
+}
+
+.habitat-image {
+    flex: 1;
+    min-width: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.18);
+}
+.habitat-image img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+.habitat-image img:hover { transform: scale(1.06); }
+
+/* ===== CTA SECTION ===== */
+.cta {
+    padding: 120px 5%;
+    background: linear-gradient(135deg, rgba(26,77,46,0.98), rgba(44,110,73,0.98)), url('/images/ab.jpg') center/cover fixed;
+    color: white;
+    text-align: center;
+    margin: 80px 0;
+    border-radius: 30px;
+}
+.cta h2 { font-size: 3rem; margin-bottom: 20px; }
+.cta p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 40px; opacity: 0.9; }
+.cta-btn {
+    display: inline-block;
+    background: #f1c40f;
+    color: #1a4d2e;
+    padding: 16px 42px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(241,196,15,0.4);
+}
+.cta-btn:hover {
+    background: white;
+    transform: translateY(-6px);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    background: linear-gradient(135deg, #1e2a38, #2c3e50);
+    color: #f8f9fa;
+    padding: 80px 8% 40px;
+    margin-top: 100px;
+}
+.footer .container { max-width: 1200px; margin: 0 auto; }
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 50px; }
+.footer-box h3 { color: #f1c40f; border-left: 4px solid #f1c40f; padding-left: 12px; margin-bottom: 20px; }
+.social-links a { color: white; font-size: 28px; margin-right: 18px; transition: all 0.3s; }
+.social-links a:hover { color: #f1c40f; transform: translateY(-6px); }
+.footer-bottom { text-align: center; color: #aaa; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+    .hero-text h2 { font-size: 3.8rem; }
+    .habitat-container, .habitat-container.reverse { flex-direction: column; text-align: center; padding: 40px; }
+    .habitat-text h3::after { left: 50%; transform: translateX(-50%); }
+}
+@media (max-width: 768px) {
+    .hero { height: 80vh; }
+    .hero-text h2 { font-size: 3rem; }
+    .habitat-info { padding: 80px 5%; }
+    .habitat-container { padding: 30px; }
+    .cta { padding: 100px 5%; border-radius: 20px; }
+}

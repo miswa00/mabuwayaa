@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= (data && data.title) ? data.title : "Scientific Research | Mabuwaya Foundation" %></title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/scientific.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- ===== HEADER / NAVBAR ===== -->
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo"><a href="/"><%= data?.site?.name || "MABUWAYA FOUNDATION" %></a></h1>
+        <ul class="nav-links" id="nav-links">
+            <% (data?.site?.nav || [
+                { href: "/mission-impact", label: "Mission & Impact" },
+                { href: "/advocacy-awareness", label: "Advocacy & Awareness" },
+                { href: "/engagement-support", label: "Engagement and Support" },
+                { href: "/community-stories", label: "Community Stories & Voices" },
+                { href: "/wildlife-habitat", label: "Wildlife & Habitat Hub" },
+                { href: "/gallery", label: "Photo & Video Gallery" }
+            ]).forEach(link => { %>
+                <li><a href="<%= link.href %>"><%= link.label %></a></li>
+            <% }) %>
+        </ul>
+        <button class="menu-btn" id="menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+</header>
+
+<!-- ===== HERO SECTION ===== -->
+<section class="research-hero">
+  <% if (data && data.heroImage) { %>
+    <img 
+      src="/uploads/<%= data.heroImage %>" 
+      alt="<%= (data && data.title) ? data.title : 'Scientific Research' %>" 
+      class="hero-img">
+  <% } else { %>
+    <div class="overlay"></div>
+  <% } %>
+
+  <div class="hero-text">
+    <h1><%= (data && data.heroHeading) ? data.heroHeading : "Scientific Research" %></h1>
+    <p><%= (data && data.heroText) ? data.heroText : "Cutting-edge studies to conserve the Philippine crocodile and protect biodiversity for future generations." %></p>
+  </div>
+</section>
+
+<!-- ===== RESEARCH CONTENT ===== -->
+<section class="research-content">
+  <h2><%= (data && data.sectionTitle) ? data.sectionTitle : "Our Research Focus" %></h2>
+  <p class="section-intro"><%= (data && data.sectionIntro) ? data.sectionIntro : "We combine science, ecology, and community partnerships to create sustainable conservation strategies." %></p>
+
+  <div class="research-grid">
+    <% if (data && Array.isArray(data.researchTopics)) { %>
+      <% data.researchTopics.forEach(topic => { %>
+        <div class="research-card">
+          <% if (topic.image) { %>
+            <img src="/uploads/<%= topic.image %>" alt="<%= topic.title %>" class="research-img">
+          <% } else if (topic.icon) { %>
+            <i class="<%= topic.icon %>"></i>
+          <% } %>
+          <h3><%= topic.title %></h3>
+          <p><%= topic.text %></p>
+        </div>
+      <% }) %>
+    <% } %>
+  </div>
+</section>
+
+<!-- ========================================================== -->
+<!-- ===== INSERTED SECTIONS START (Nothing above modified) ===== -->
+<!-- ========================================================== -->
+<!-- ===== RESEARCH HIGHLIGHTS ===== -->
+<section class="research-highlights">
+<h2><%= data?.highlightsTitle || "Research Highlights" %></h2>
+<p><%= data?.highlightsText || "Key breakthroughs, ongoing fieldwork, and scientific milestones that guide our conservation actions." %></p>
+
+<ul class="highlights-list">
+  <li>Discovery of remnant Philippine crocodile population in San Mariano in 1999, leading to targeted conservation efforts.</li>
+  <li>Development of a Wetland Management Plan in San Mariano to protect all freshwater wetlands and crocodile habitats.</li>
+  <li>Implementation of a head-start program, rearing hatchlings in captivity and releasing them after two years to boost wild populations.</li>
+  <li>Community education campaigns, including annual distribution of 4,000 calendars and posters to households in crocodile sites.</li>
+  <li>Successful community dialogues in 15 villages to integrate cultural values into conservation strategies.</li>
+  <li>Collaboration with international partners for crocodile releases and research publications on conservation milestones.</li>
+</ul>
+
+</section>
+
+<!-- ===== RESEARCH TIMELINE ===== -->
+<section class="research-timeline">
+  <h2><%= data?.timelineTitle || "Research Timeline" %></h2>
+  <p><%= data?.timelineText || "A chronological look at our conservation journey and scientific progress." %></p>
+
+  <div class="timeline">
+    <% if (data?.timeline && data.timeline.length > 0) { %>
+      <% data.timeline.forEach(item => { %>
+        <div class="timeline-item">
+          <div class="timeline-year"><%= item.year %></div>
+          <p><%= item.description %></p>
+        </div>
+      <% }) %>
+    <% } %>
+    <div class="timeline-item">
+      <div class="timeline-year">1999</div>
+      <p>Discovery of remnant Philippine crocodile population in San Mariano by Dutch researchers, sparking conservation initiatives.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2003</div>
+      <p>Mabuwaya Foundation officially established to focus on Philippine crocodile conservation.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2005</div>
+      <p>Received Conservation Leadership Programme (CLP) Leadership Award to build organizational capacity.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2012</div>
+      <p>Collaborated with St. Augustine Alligator Farm to release baby Philippine crocodiles into protected habitats.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2016</div>
+      <p>Completed a 12-year evaluation of Communication, Education, and Public Awareness (CEPA) campaigns.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2019</div>
+      <p>Published key paper on conservation milestones of the Philippine crocodile.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2021</div>
+      <p>Philippine Crocodile European Studbook (ESB) expanded to include 51 individuals.</p>
+    </div>
+    <div class="timeline-item">
+      <div class="timeline-year">2025</div>
+      <p>Ongoing efforts with Indigenous elders to promote crocodile comeback in northern Luzon rivers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STAT COUNTERS ===== -->
+<section class="research-stats">
+  <div class="stats-grid">
+    <% if (data?.stats && data.stats.length > 0) { %>
+      <% data.stats.forEach(stat => { %>
+        <div class="stat-box">
+          <div class="stat-number"><%= stat.number %></div>
+          <div class="stat-label"><%= stat.label %></div>
+        </div>
+      <% }) %>
+    <% } %>
+    <div class="stat-box">
+      <div class="stat-number">~250</div>
+      <div class="stat-label">Philippine crocodiles remaining in the wild</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">4,000</div>
+      <div class="stat-label">Calendars distributed annually to households</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">15</div>
+      <div class="stat-label">Villages engaged in community dialogues</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">51</div>
+      <div class="stat-label">Individuals in the Philippine Crocodile European Studbook (as of 2021)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">12</div>
+      <div class="stat-label">Years of evaluated CEPA campaigns</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ SECTION ===== -->
+<section class="research-faq">
+  <h2><%= data?.faqTitle || "Frequently Asked Questions" %></h2>
+
+  <% if (data?.faq && data.faq.length > 0) { %>
+    <% data.faq.forEach((item, index) => { %>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFAQ(<%= index %>)">
+          <%= item.question %>
+        </button>
+        <div class="faq-answer" id="faq-<%= index %>">
+          <p><%= item.answer %></p>
+        </div>
+      </div>
+    <% }) %>
+  <% } %>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(100)">
+      Why must we protect Philippine crocodiles?
+    </button>
+    <div class="faq-answer" id="faq-100">
+      <p>The Mabuwaya Foundation emphasizes six key reasons: (1) It is required by national law; (2) Crocodiles maintain wetland ecosystems; (3) They have cultural and spiritual significance to local communities; (4) They support biodiversity; (5) Conservation benefits human livelihoods through sustainable habitats; (6) They are a unique endemic species worth preserving for future generations.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(101)">
+      What is the head-start program?
+    </button>
+    <div class="faq-answer" id="faq-101">
+      <p>The head-start program involves collecting hatchlings, rearing them in safe captivity for two years, and releasing them back into the wild to increase survival rates.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(102)">
+      How does the foundation involve local communities?
+    </button>
+    <div class="faq-answer" id="faq-102">
+      <p>Through education campaigns, dialogues, and collaborative protection efforts, including CEPA activities like posters, calendars, and school lectures.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(103)">
+      What is the status of the Philippine crocodile?
+    </button>
+    <div class="faq-answer" id="faq-103">
+      <p>It is critically endangered, with fewer than 250 individuals remaining in the wild, primarily in northern Luzon.</p>
+    </div>
+  </div>
+  <div class="faq-item">
+    <button class="faq-question" onclick="toggleFAQ(104)">
+      How can I support the Mabuwaya Foundation?
+    </button>
+    <div class="faq-answer" id="faq-104">
+      <p>You can donate, volunteer, or spread awareness through our social media channels and website.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleFAQ(i) {
+  const ans = document.getElementById("faq-" + i);
+  ans.classList.toggle("open");
+}
+</script>
+
+<!-- ===== PUBLICATIONS ===== -->
+<section class="research-publications">
+  <h2><%= data?.publicationsTitle || "Publications" %></h2>
+
+  <ul class="publications-list">
+    <% if (data?.publications && data.publications.length > 0) { %>
+      <% data.publications.forEach(pub => { %>
+        <li><%= pub %></li>
+      <% }) %>
+    <% } %>
+    <li>Conservation milestones of the critically endangered Philippine crocodile Crocodylus mindorensis Schmidt, 1935 (2019)</li>
+    <li>A longitudinal evaluation of the Communication, Education and Public Awareness (CEPA) campaign for the Philippine crocodile Crocodylus mindorensis in Northeast Luzon, the Philippines (2016)</li>
+    <li>'Why must we protect crocodiles?' Explaining the value of the Philippine crocodile to rural communities (2011)</li>
+    <li>Integrating cultural values in Philippine crocodile conservation (2008)</li>
+    <li>The Philippine crocodile: ecology, culture and conservation (2012)</li>
+    <li>Crocodile Rehabilitation, Observance and Conservation (CROC) Project Report (2005)</li>
+    <li>Newsletter on Philippine Crocodile Conservation (2014)</li>
+    <li>RSG Book on Crocodile Conservation in the Philippines (2008)</li>
+  </ul>
+</section>
+
+<!-- ====================================================== -->
+<!-- ===== INSERTED SECTIONS END (Nothing below changed) ===== -->
+<!-- ====================================================== -->
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-box">
+      <h3>Our Office</h3>
+      <p>San Mariano, Isabela<br>Philippines 3332</p>
+    </div>
+    <div class="footer-box">
+      <h3>Phone</h3>
+      <p>+63 917 123 4567<br>+63 78 123 4567</p>
+    </div>
+    <div class="footer-box">
+      <h3>Email</h3>
+      <p>info@mabuwaya.org<br>mabuwaya.foundation@gmail.com</p>
+    </div>
+    <div class="footer-box">
+      <h3>Follow Us</h3>
+      <div class="social-links">
+        <a href="https://www.facebook.com/mabuwaya" target="_blank"><i class="fab fa-facebook-square"></i></a>
+        <a href="https://x.com/mabuwaya" target="_blank"><i class="fab fa-twitter-square"></i></a>
+        <a href="https://www.instagram.com/mabuwayafoundation/" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </div>
+  <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById('menu-btn').addEventListener('click', function () {
+  document.getElementById('nav-links').classList.toggle('active');
+});
+</script>
+
+</body>
+</html>

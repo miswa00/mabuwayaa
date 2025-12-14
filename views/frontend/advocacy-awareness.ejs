@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title %></title>
+  <link rel="stylesheet" href="/css/advocacy-awareness.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/homepage"><%= data.siteName || "MABUWAYA FOUNDATION" %></a></h1>
+      <ul class="nav-links" id="nav-links">
+        <% (data.navLinks || []).forEach(link => { %>
+          <li><a href="<%= link.href %>"><%= link.text %></a></li>
+        <% }) %>
+      </ul>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="programs-section">
+    <h2><%= data.sectionTitle %></h2>
+    <p class="intro"><%= data.intro %></p>
+
+    <div class="programs-grid">
+      <% data.programs.forEach(program => { %>
+        <a href="<%= program.href %>" class="program-card">
+          <i class="<%= program.icon %>"></i>
+          <h3><%= program.title %></h3>
+          <p><%= program.description %></p>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-box">
+        <h3><%= data.footer.office.title %></h3>
+        <p><%- data.footer.office.address %></p>
+      </div>
+
+      <div class="footer-box">
+        <h3><%= data.footer.phone.title %></h3>
+        <p><%- data.footer.phone.numbers.join('<br>') %></p>
+      </div>
+
+      <div class="footer-box">
+        <h3><%= data.footer.email.title %></h3>
+        <p><%- data.footer.email.addresses.join('<br>') %></p>
+      </div>
+
+      <div class="footer-box">
+        <h3><%= data.footer.social.title %></h3>
+        <div class="social-links">
+          <% data.footer.social.links.forEach(link => { %>
+            <a href="<%= link.url %>" target="_blank">
+              <i class="fab fa-<%= link.platform %>-square"></i>
+            </a>
+          <% }) %>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom"><%= data.footer.copyright %></p>
+  </div>
+</footer>
+
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

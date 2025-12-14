@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title || "Species Recovery | Mabuwaya Foundation" %></title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/species.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo"><a href="/"><%= data?.site?.name || "MABUWAYA FOUNDATION" %></a></h1>
+        <ul class="nav-links" id="nav-links">
+            <% (data?.site?.nav || [
+                { href: "/mission-impact", label: "Mission & Impact" },
+                { href: "/advocacy-awareness", label: "Advocacy & Awareness" },
+                { href: "/engagement-support", label: "Engagement and Support" },
+                { href: "/community-stories", label: "Community Stories & Voices" },
+                { href: "/wildlife-habitat", label: "Wildlife & Habitat Hub" },
+                { href: "/gallery", label: "Photo & Video Gallery" }
+            ]).forEach(link => { %>
+                <li><a href="<%= link.href %>"><%= link.label %></a></li>
+            <% }) %>
+        </ul>
+        <button class="menu-btn" id="menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+</header>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="recovery-banner">
+    <% if (data.bannerImage) { %>
+      <img src="/uploads/<%= data.bannerImage %>" alt="Banner Image" class="banner-img">
+    <% } %>
+
+    <div class="banner-overlay">
+      <h2><%= data.bannerHeading || "Species Recovery Programs" %></h2>
+      <p><%= data.bannerText || "Together, we protect the critically endangered Philippine crocodile and preserve biodiversity for future generations." %></p>
+      <a href="#species-recovery" class="banner-btn">Get Involved</a>
+    </div>
+  </section>
+
+  <!-- ===== SPECIES RECOVERY CONTENT ===== -->
+  <section class="species-recovery" id="species-recovery">
+    <h2 class="section-title"><%= data.sectionTitle || "Our Recovery Efforts" %></h2>
+    <p class="intro"><%= data.intro || "Mabuwaya Foundation leads programs that combine research, conservation, and community participation to recover endangered species. Through collective action, we restore balance to our ecosystems." %></p>
+
+    <div class="species-grid">
+      <% (data.cards || []).forEach(card => { %>
+        <div class="species-card">
+          <div class="img-box">
+            <% if (card.img && card.img.startsWith('/')) { %>
+              <!-- Static image -->
+              <img src="<%= card.img %>" alt="<%= card.title %>">
+            <% } else if (card.img) { %>
+              <!-- Uploaded dynamic image -->
+              <img src="/uploads/<%= card.img %>" alt="<%= card.title %>">
+            <% } else { %>
+              <!-- Optional fallback -->
+              <img src="/images/default.jpg" alt="Default image">
+            <% } %>
+          </div>
+          <h3><%= card.title %></h3>
+          <p><%= card.text %></p>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-box">
+        <h3>Our Office</h3>
+        <p>San Mariano, Isabela<br>Philippines 3332</p>
+      </div>
+      <div class="footer-box">
+        <h3>Phone</h3>
+        <p>+63 917 123 4567<br>+63 78 123 4567</p>
+      </div>
+      <div class="footer-box">
+        <h3>Email</h3>
+        <p>info@mabuwaya.org<br>mabuwaya.foundation@gmail.com</p>
+      </div>
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/mabuwaya" target="_blank"><i class="fab fa-facebook"></i></a>
+          <a href="https://x.com/mabuwaya" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com/mabuwayafoundation/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

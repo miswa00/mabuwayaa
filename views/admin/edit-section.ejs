@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Edit <%= section.name || slug %></title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    /* (All your existing styles stay exactly the same - no changes needed) */
+    :root { --primary: #1abc9c; --primary-dark: #16a085; --bg: #f4f6f8; --text: #2c3e50; --card-bg: #fff; --shadow: 0 4px 12px rgba(0,0,0,0.1); --radius: 10px; }
+    body { font-family: "Segoe UI", Tahoma, sans-serif; background: var(--bg); color: var(--text); padding: 40px 20px; display: flex; flex-direction: column; align-items: center; }
+    header { width: 100%; max-width: 1100px; background: var(--card-bg); display: flex; justify-content: space-between; align-items: center; padding: 16px 24px; border-radius: var(--radius); box-shadow: var(--shadow); margin-bottom: 30px; }
+    h1 { margin: 0; font-size: 22px; }
+    .header-buttons a { background: var(--primary); color: #fff; padding: 10px 16px; border-radius: 8px; text-decoration: none; margin-left: 10px; font-weight: 600; }
+    .header-buttons a:hover { background: var(--primary-dark); }
+    form { width: 100%; max-width: 1100px; background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow); padding: 25px; }
+    details { background: #fafafa; border: 1px solid #ddd; border-radius: var(--radius); padding: 12px 15px; margin-bottom: 10px; }
+    summary { font-weight: 600; color: var(--primary-dark); cursor: pointer; outline: none; }
+    .form-group { margin-bottom: 18px; background: #fff; border: 1px solid #eee; padding: 12px; border-radius: var(--radius); box-shadow: 0 2px 4px rgba(0,0,0,0.04); }
+    label { font-weight: 600; display: block; margin-bottom: 6px; }
+    input[type="text"], input[type="number"], textarea, select { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 6px; font-size: 15px; }
+    textarea { min-height: 100px; resize: vertical; }
+    .preview-container { margin-top: 10px; display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+    .preview { max-width: 300px; border-radius: 6px; border: 2px dashed transparent; transition: 0.3s; cursor: pointer; }
+    .preview:hover { border-color: var(--primary); transform: scale(1.02); }
+    video.preview { width: 300px; max-height: 200px; }
+    .upload-btn { background: var(--primary); color: #fff; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: 600; }
+    .upload-btn:hover { background: var(--primary-dark); }
+    .submit-btn { background: #3498db; color: #fff; padding: 12px 20px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; margin-top: 20px; }
+    .submit-btn:hover { background: #2980b9; }
+    .pdf-item-box { padding: 10px; border: 1px solid #ddd; background: #fff; border-radius: 6px; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+    .pdf-item-box a { color: #2c3e50; font-weight: 600; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Editing: <%= section.name || slug %></h1>
+    <div class="header-buttons">
+      <a href="/admin">Dashboard</a>
+      <a href="/admin/logout">Logout</a>
+    </div>
+  </header>
+
+  <form action="/admin/edit/<%= slug %>" method="POST" enctype="multipart/form-data">
+    <h2>Editable Fields</h2>
+    <p style="color:gray;margin-bottom:20px;">Click a section to expand. Click image/video or use the button to upload.</p>
+    <hr>
+
+    <% function sanitizeName(name) { return name.replace(/\./g, "_"); } %>
+
+    <% function renderField(key, value, parentKey) { 
+         const stringKey = String(key); 
+         if (slug === "community-stories" && /font(Size|Family|Weight)$/i.test(stringKey)) return;
+         if (slug === "community-stories" && /(color|alignment|style)$/i.test(stringKey)) return;
+
+         const fullKey = parentKey ? `${parentKey}.${stringKey}` : stringKey; 
+         const safeKey = sanitizeName(fullKey);
+         const displayName = stringKey.replace(/[_-]/g, " ").replace(/\b\w/g, l => l.toUpperCase()); 
+    %>
+
+    <% if (typeof value === 'string') { %>
+      <div class="form-group">
+        <label><%= displayName %></label>
+        <% if (value.match(/\.(jpg|jpeg|png|gif|webp)$/i)) { %>
+          <div class="preview-container">
+            <img src="<%= value.startsWith('/uploads/') ? value : '/uploads/' + value.replace(/^\/?uploads\//,'') %>" class="preview" data-input="<%= safeKey %>_file">
+            <input type="file" name="<%= safeKey %>_file" style="display:none;">
+            <input type="hidden" name="<%= safeKey %>" value="<%= value %>">
+            <button type="button" class="upload-btn" data-target="<%= safeKey %>_file">Change Image</button>
+          </div>
+        <% } else if (value.match(/\.(mp4|webm)$/i)) { %>
+          <div class="preview-container">
+            <video src="<%= value.startsWith('/uploads/') ? value : '/uploads/' + value.replace(/^\/?uploads\//,'') %>" controls class="preview" data-input="<%= safeKey %>_file"></video>
+            <input type="file" name="<%= safeKey %>_file" style="display:none;">
+            <input type="hidden" name="<%= safeKey %>" value="<%= value %>">
+            <button type="button" class="upload-btn" data-target="<%= safeKey %>_file">Change Video</button>
+          </div>
+        <% } else if (value.length > 100) { %>
+          <textarea name="<%= fullKey %>"><%- value %></textarea>
+        <% } else { %>
+          <input type="text" name="<%= fullKey %>" value="<%- value %>">
+        <% } %>
+      </div>
+    <% } else if (typeof value === 'number') { %>
+      <div class="form-group">
+        <label><%= displayName %></label>
+        <input type="number" name="<%= fullKey %>" value="<%= value %>">
+      </div>
+    <% } else if (typeof value === 'boolean') { %>
+      <div class="form-group">
+        <label><%= displayName %></label>
+        <select name="<%= fullKey %>">
+          <option value="true" <%= value ? 'selected' : '' %>>True</option>
+          <option value="false" <%= !value ? 'selected' : '' %>>False</option>
+        </select>
+      </div>
+    <% } else if (Array.isArray(value)) { %>
+      <details>
+        <summary><%= displayName %> (List)</summary>
+        <% value.forEach((item, i) => { 
+             const itemName = item?.title || item?.name || `Entry ${i + 1}`; 
+        %>
+          <details>
+            <summary><%= itemName %></summary>
+            <%= renderField(i, item, fullKey) %>
+          </details>
+        <% }) %>
+      </details>
+    <% } else if (typeof value === 'object' && value !== null) { %>
+      <details>
+        <summary><%= displayName %> (Section)</summary>
+        <% for (const subKey in value) { %>
+          <%= renderField(subKey, value[subKey], fullKey) %>
+        <% } %>
+      </details>
+    <% } %>
+    <% } %>
+
+    <% for (const key in sectionData) { %>
+      <%= renderField(key, sectionData[key], "") %>
+    <% } %>
+
+    <!-- PDF DOWNLOADS SECTION - ONLY SHOW ON POPULATION PAGE -->
+    <% if (slug === 'population-growth' || slug === 'population') { %>
+      <hr>
+      <details open>
+        <summary>PDF Downloads</summary>
+
+        <div class="form-group">
+          <label>Upload New PDF Files (multiple allowed)</label>
+          <input type="file" name="pdfFiles" accept="application/pdf" multiple>
+        </div>
+
+        <% if (section.pdfLinks && section.pdfLinks.length > 0) { %>
+          <h4 style="margin: 15px 0 10px;">Current PDF Files</h4>
+          <% section.pdfLinks.forEach((pdf, index) => { %>
+            <div class="pdf-item-box">
+              <a href="<%= pdf.url %>" target="_blank">
+                <%= pdf.name || 'Download PDF' %>
+              </a>
+              <div>
+                <input type="checkbox" name="removePdf_<%= index %>" id="remove_<%= index %>">
+                <label for="remove_<%= index %>">Remove</label>
+              </div>
+              <input type="hidden" name="existingPdf_<%= index %>" value="<%= pdf.url %>">
+              <input type="hidden" name="existingPdfName_<%= index %>" value="<%= pdf.name %>">
+            </div>
+          <% }) %>
+        <% } else { %>
+          <p style="color: #999; font-style: italic;">No PDFs uploaded yet for this section.</p>
+        <% } %>
+      </details>
+    <% } %>
+    <!-- END OF POPULATION-ONLY PDF SECTION -->
+
+    <hr>
+    <button type="submit" class="submit-btn">Save Changes</button>
+  </form>
+
+  <script>
+    document.querySelectorAll('.preview').forEach(preview => {
+      const inputName = preview.dataset.input;
+      const fileInput = document.querySelector(`[name="${inputName}"]`);
+      const uploadBtn = document.querySelector(`[data-target="${inputName}"]`);
+      if (fileInput) {
+        preview.addEventListener('click', () => fileInput.click());
+        if (uploadBtn) uploadBtn.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', e => {
+          const file = e.target.files[0];
+          if (!file) return;
+          const reader = new FileReader();
+          reader.onload = ev => preview.src = ev.target.result;
+          reader.readAsDataURL(file);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

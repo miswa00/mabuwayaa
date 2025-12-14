@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title %> | Mabuwaya Foundation</title>
+  <link rel="stylesheet" href="/css/gallery.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/homepage"><%= data.siteName || "MABUWAYA FOUNDATION" %></a></h1>
+      <ul class="nav-links" id="nav-links">
+        <% (data.navLinks || []).forEach(link => { %>
+          <li><a href="<%= link.href %>"><%= link.text %></a></li>
+        <% }) %>
+      </ul>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== GALLERY SECTION ===== -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2><%= data.heading || "Our Gallery" %></h2>
+      <p class="gallery-intro"><%= data.intro || "" %></p>
+
+      <div class="gallery-grid">
+        <!-- Photos -->
+        <% (data.photos || []).forEach(photo => { %>
+          <div class="gallery-item">
+            <img src="<%= photo.src %>" alt="<%= photo.alt %>">
+          </div>
+        <% }) %>
+
+        <!-- Videos -->
+        <% (data.videos || []).forEach(video => { %>
+          <div class="gallery-item video">
+            <iframe src="<%= video.embed %>" frameborder="0" allowfullscreen></iframe>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p><%= data.footer?.office || "San Mariano, Isabela, Philippines 3332" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p><%= data.footer?.phone || "+63 917 123 4567" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p><%= data.footer?.email || "info@mabuwaya.org" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <% (data.footer?.social || []).forEach(s => { %>
+              <a href="<%= s.href %>" target="_blank"><i class="<%= s.icon %>"></i></a>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom"><%= data.footer?.copyright || "© 2025 Mabuwaya Foundation. All rights reserved." %></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+{
+      "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "title": "Habitat Assessment",
+  "hero": {
+    "heading": "Habitat Assessment",
+    "text": "Exploring and protecting the wetlands, rivers, and forests that safeguard the critically endangered Philippine crocodile."
+  },
+  "sections": [
+    {
+      "heading": "Wetlands & Rivers",
+      "text": "The Philippine crocodile thrives in freshwater wetlands and rivers in Northern Luzon. These ecosystems provide food, nesting sites, and shelter, but are under threat from overfishing and pollution.",
+      "image": "/images/ubo.jpg",
+      "alt": "Wetland Habitat"
+    },
+    {
+      "heading": "Forests & Floodplains",
+      "text": "Healthy forests regulate water quality and provide crucial cover for crocodiles and other wildlife. Deforestation and habitat conversion continue to pose risks to biodiversity.",
+      "image": "https://images.unsplash.com/photo-1523978591478-c753949ff840",
+      "alt": "Forest Habitat"
+    },
+    {
+      "heading": "Community Partnerships",
+      "text": "Local communities are at the heart of conservation. Habitat assessments guide protection programs while empowering residents to sustainably manage their environment.",
+      "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+      "alt": "Community Partnership"
+    }
+  ],
+  "cta": {
+    "heading": "Help Protect Their Habitat",
+    "text": "Your support ensures the survival of the Philippine crocodile and the health of our rivers and forests. Join us in conservation.",
+    "button": "Get Involved",
+    "link": "engagement and support.html"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "title": "Scientific Research | Mabuwaya Foundation",
+  "heroHeading": "Scientific Research",
+  "heroText": "Cutting-edge studies to conserve the Philippine crocodile and protect biodiversity for future generations.",
+  "sectionTitle": "Our Research Focus",
+  "sectionIntro": "We combine science, ecology, and community partnerships to create sustainable conservation strategies.",
+  "cards": [
+    {
+      "icon": "fas fa-water",
+      "title": "Habitat Monitoring",
+      "text": "Long-term monitoring of wetlands, rivers, and forests ensures the survival of the crocodile and the health of ecosystems."
+    },
+    {
+      "icon": "fas fa-dna",
+      "title": "Ecological Studies",
+      "text": "We study breeding behavior, diet, and water quality to maintain balance in fragile habitats."
+    },
+    {
+      "icon": "fas fa-users",
+      "title": "Community Research",
+      "text": "Local knowledge and traditions are recorded to guide sustainable, community-driven conservation."
+    },
+    {
+      "icon": "fas fa-flask",
+      "title": "Conservation Science",
+      "text": "Scientific experiments and applied studies inform long-term strategies for species protection."
+    },
+    {
+      "icon": "fas fa-globe",
+      "title": "Climate Impact Studies",
+      "text": "Exploring how climate change affects crocodile habitats to prepare adaptive conservation measures."
+    },
+    {
+      "icon": "fas fa-seedling",
+      "title": "Biodiversity Research",
+      "text": "Examining links between crocodiles and other species to maintain healthy and diverse ecosystems."
+    }
+  ]
+}

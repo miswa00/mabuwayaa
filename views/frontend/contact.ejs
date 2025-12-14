@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= contactData.title %> | Mabuwaya Foundation</title>
+  <link rel="stylesheet" href="/css/contact.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <%- include('partials/header') %>
+
+  <!-- ===== CONTACT INFO ===== -->
+  <section class="contact-info">
+    <div class="container">
+      <h2><%= contactData.heading %></h2>
+      <p class="description"><%= contactData.description %></p>
+
+      <div class="info-grid">
+        <% contactData.info.forEach(item => { %>
+          <div class="info-box">
+            <i class="<%= item.icon %>"></i>
+            <h3><%= item.title %></h3>
+            <% if(item.type === "social"){ %>
+              <div class="social-links">
+                <% item.links.forEach(link => { %>
+                  <a href="<%= link.url %>" target="_blank"><i class="<%= link.icon %>"></i></a>
+                <% }) %>
+              </div>
+            <% } else { %>
+              <p><%= item.content %></p>
+            <% } %>
+          </div>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <%- include('partials/footer') %>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

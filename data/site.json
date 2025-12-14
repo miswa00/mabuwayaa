@@ -1,0 +1,49 @@
+{
+  "name": "MABUWAYA FOUNDATION",
+  "nav": [
+    {
+      "href": "/mission-impact",
+      "label": "Mission & Impact"
+    },
+    {
+      "href": "/advocacy-awareness",
+      "label": "Advocacy & Awareness"
+    },
+    {
+      "href": "/engagement-support",
+      "label": "Engagement and Support"
+    },
+    {
+      "href": "/community-stories",
+      "label": "Community Stories & Voices"
+    },
+    {
+      "href": "/wildlife-habitat",
+      "label": "Wildlife & Habitat Hub"
+    },
+    {
+      "href": "/gallery",
+      "label": "Photo & Video Gallery"
+    }
+  ],
+  "footer": {
+    "office": "San Mariano, IsabelaPhilippines 3332",
+    "phone": "+63 917 123 4567+63 78 123 4567",
+    "email": "info@mabuwaya.orgmabuwaya.foundation@gmail.com",
+    "social": [
+      {
+        "href": "https://www.facebook.com/mabuwaya",
+        "icon": "fab fa-facebook-square"
+      },
+      {
+        "href": "https://x.com/mabuwaya",
+        "icon": "fab fa-twitter-square"
+      },
+      {
+        "href": "https://www.instagram.com/mabuwayafoundation/",
+        "icon": "fab fa-instagram"
+      }
+    ],
+    "copyright": "© 2025 Mabuwaya Foundation. All rights reserved."
+  }
+}

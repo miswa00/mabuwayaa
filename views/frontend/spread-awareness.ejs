@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title || "Mabuwaya | Spread Awareness" %></title>
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/css/spread-awareness.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/">MABUWAYA FOUNDATION</a></h1>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/mission-impact">Mission & Impact</a></li>
+        <li><a href="/advocacy-awareness">Advocacy & Awareness</a></li>
+        <li><a href="/engagement-support">Engagement and Support</a></li>
+        <li><a href="/community-stories">Community Stories & Voices</a></li>
+        <li><a href="/wildlife-habitat">Wildlife & Habitat Hub</a></li>
+        <li><a href="/gallery">Photo & Video Gallery</a></li>
+      </ul>
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO IMAGE (optional) ===== -->
+  <% if (data.heroImage) { %>
+    <section class="hero-banner" style="background-image: url('/uploads/<%= data.heroImage %>');">
+      <div class="overlay">
+        <h1><%= data.heading || "Spread Awareness" %></h1>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- Spread Awareness Section -->
+  <section class="spread-awareness">
+    <div class="awareness-container">
+      <% if (!data.heroImage) { %>
+        <h2><%= data.heading || "Spread Awareness" %></h2>
+      <% } %>
+
+      <p class="intro">
+        <%= data.intro || "Help us spread the word about the importance of conserving the critically endangered Philippine crocodile and protecting biodiversity in the Philippines. Your voice matters!" %>
+      </p>
+
+      <div class="awareness-grid">
+        <% (data.cards || [
+          { icon: "fas fa-bullhorn", title: "Advocate", text: "Share information about the Philippine crocodile and its habitats on social media and in your community." },
+          { icon: "fas fa-people-carry", title: "Engage", text: "Join campaigns and events that raise awareness on wildlife protection and sustainable living." },
+          { icon: "fas fa-share-alt", title: "Share", text: "Promote our advocacy by sharing our posts, videos, and stories with your friends and family." }
+        ]).forEach(card => { %>
+          <div class="awareness-card">
+            <% if (card.img) { %>
+              <!-- Supports uploaded or static images -->
+              <% if (card.img.startsWith('/')) { %>
+                <img src="<%= card.img %>" alt="<%= card.title %>">
+              <% } else { %>
+                <img src="/uploads/<%= card.img %>" alt="<%= card.title %>">
+              <% } %>
+            <% } else { %>
+              <!-- No image: show icon -->
+              <i class="<%= card.icon %>"></i>
+            <% } %>
+
+            <h3><%= card.title %></h3>
+            <p><%= card.text %></p>
+          </div>
+        <% }) %>
+      </div>
+
+      <a href="/engagement-support" class="awareness-btn">Get Involved</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer1">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p>San Mariano, Isabela<br>Philippines 3332</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p>+63 917 123 4567<br>+63 78 123 4567</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p>info@mabuwaya.org<br>mabuwaya.foundation@gmail.com</p>
+        </div>
+
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/mabuwaya" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://x.com/mabuwaya" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/mabuwayafoundation/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title><%= data?.title || "Community Stories & Voices" %></title>
+  <link rel="stylesheet" href="/css/community-stories.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    :root {
+      --navy: #2c3e50;
+      --navy-dark: #1a2530;
+      --navy-light: #34495e;
+      --accent: #3498db;
+      --text: #333;
+      --light-bg: #f8fbff;
+      --card-shadow: 0 12px 35px rgba(44,62,80,0.12);
+    }
+
+
+    /* HERO */
+    .hero-section {
+      position: relative;
+      height: 88vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(135deg, rgba(44,62,80,0.88), rgba(26,37,48,0.8));
+      z-index: 2;
+    }
+    .hero-text {
+      position: relative;
+      z-index: 3;
+      max-width: 1000px;
+      padding: 30px;
+    }
+    .hero-text h1 {
+      font-size: 4.5rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+      letter-spacing: 1.5px;
+      text-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    }
+    .hero-text p {
+      font-size: 1.45rem;
+      max-width: 750px;
+      margin: 0 auto;
+      opacity: 0.95;
+    }
+
+    /* BREAKING NEWS – ALL TEXT NOW PURE WHITE */
+    .breaking-news {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      color: white !important;
+      padding: 50px 8%;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(44,62,80,0.25);
+    }
+    .breaking-news h2 {
+      font-size: 2.4rem;
+      color: white !important;
+      margin: 0 0 18px 0;
+      font-weight: 700;
+    }
+    .breaking-news h3 {
+      font-size: 1.6rem;
+      color: white !important;
+      margin: 25px 0 10px 0;
+    }
+    .breaking-news p {
+      font-size: 1.25rem;
+      max-width: 900px;
+      margin: 0 auto 20px;
+      color: white !important;
+    }
+    .breaking-news strong {
+      color: white !important;
+      font-weight: 600;
+    }
+    .breaking-news a {
+      color: #74b9ff !important;
+      text-decoration: underline !important;
+      font-weight: 500;
+    }
+    .breaking-news a:hover {
+      color: #a8d0ff !important;
+    }
+
+    /* Divider */
+    .divider {
+      border: none;
+      height: 5px;
+      background: linear-gradient(to right, transparent, var(--accent), transparent);
+      width: 180px;
+      margin: 90px auto;
+      border-radius: 3px;
+    }
+
+    /* NEWS GRID */
+    .news-container {
+      padding: 110px 8% 140px;
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 55px;
+    }
+    .news-card {
+      background: white;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      transition: all 0.45s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
+    .news-card:hover {
+      transform: translateY(-18px);
+      box-shadow: 0 25px 50px rgba(44,62,80,0.2);
+    }
+    .news-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-bottom: 6px solid var(--navy);
+    }
+    .card-caption {
+      padding: 32px;
+    }
+    .card-caption h3 {
+      font-size: 1.7rem;
+      color: var(--navy);
+      margin: 0 0 16px 0;
+      font-weight: 700;
+    }
+    .card-caption p {
+      font-size: 1.12rem;
+      color: #444;
+      line-height: 1.85;
+      margin: 0;
+    }
+    .no-news {
+      text-align: center;
+      font-size: 1.4rem;
+      color: #777;
+      padding: 120px 20px;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-text h1 { font-size: 3.5rem; }
+      .news-grid { grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); }
+    }
+    @media (max-width: 768px) {
+      .hero-text h1 { font-size: 2.9rem; }
+      .hero-text p { font-size: 1.25rem; }
+      .news-grid { grid-template-columns: 1fr; gap: 45px; }
+      .news-card img { height: 260px; }
+      .breaking-news { padding: 60px 5%; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR – untouched -->
+   <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/homepage"><%= data.siteName || "MABUWAYA FOUNDATION" %></a></h1>
+      <ul class="nav-links" id="nav-links">
+        <% (data.navLinks || []).forEach(link => { %>
+          <li><a href="<%= link.href %>"><%= link.text %></a></li>
+        <% }) %>
+      </ul>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero-section">
+    <% if (data?.hero?.image) { 
+        const heroImg = data.hero.image;
+        const heroSrc = heroImg.startsWith("/uploads/") ? heroImg : `/uploads/${heroImg.replace(/^\/+/, "")}`;
+    %>
+      <img class="hero-bg" src="<%= heroSrc %>" alt="Community Stories">
+    <% } %>
+    <div class="hero-text">
+      <h1><%= data?.hero?.header || "Community Stories & Voices" %></h1>
+      <p><%= data?.hero?.subheader || "Real stories from the people protecting the Philippine crocodile and their wetlands." %></p>
+    </div>
+  </section>
+
+  <!-- BREAKING NEWS – ALL TEXT NOW PURE WHITE -->
+  <% if (data?.breakingNews) { %>
+  <section class="breaking-news">
+    <h2><%= data.breakingNews.title || "Latest Update" %></h2>
+    <p><%= data.breakingNews.content || "" %></p>
+    <% if (data.breakingNews.media) { %>
+      <h3><%= data.breakingNews.media.header || "For Media Inquiries" %></h3>
+      <p>
+        Contact 
+        <% (data.breakingNews.media.contacts || []).forEach((contact, i) => { %>
+          <strong><%= contact %></strong><%= (i < data.breakingNews.media.contacts.length - 1) ? ' or ' : '' %>
+        <% }) %>
+        <% if (data.breakingNews.media.email) { %>
+          at <a href="mailto:<%= data.breakingNews.media.email %>"><%= data.breakingNews.media.email %></a>.
+        <% } %>
+      </p>
+    <% } %>
+  </section>
+  <% } %>
+
+  <hr class="divider"/>
+
+  <!-- NEWS CARDS -->
+  <section class="news-container">
+    <div class="news-grid">
+      <% 
+        const newsItems = data?.news?.length
+          ? data.news
+          : [
+              { title: data["news_0.title"], description: data["news_0.description"], image: data["news_0.image"] },
+              { title: data["news_1.title"], description: data["news_1.description"], image: data["news_1.image"] },
+              { title: data["news_2.title"], description: data["news_2.description"], image: data["news_2.image"] }
+            ].filter(n => n && (n.title || n.description || n.image));
+
+        if (newsItems.length === 0) { %>
+          <p class="no-news">No community stories available right now.</p>
+        <% } else {
+          newsItems.forEach(item => { 
+            const possibleImages = [item.image_file_file_file, item.image_file_file, item.image_file, item.image, item.news_image];
+            let foundImg = possibleImages.find(img => typeof img === "string" && img.trim() !== "");
+            const imgSrc = foundImg 
+              ? (foundImg.startsWith("/uploads/") ? foundImg : `/uploads/${foundImg.replace(/^\/+/, "")}`)
+              : "/images/placeholder.jpg";
+      %>
+        <article class="news-card">
+          <img src="<%= imgSrc %>" alt="<%= item.title || 'Story' %>" loading="lazy">
+          <div class="card-caption">
+            <h3><%= item.title || "Untitled Story" %></h3>
+            <p><%= item.description || "A heartfelt story from our community partners." %></p>
+          </div>
+        </article>
+      <% })} %>
+    </div>
+  </section>
+
+  <!-- FOOTER – untouched -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <% if (data?.footer?.office) { %>
+          <div class="footer-box"><h3><%= data.footer.office.title %></h3><p><%- data.footer.office.address %></p></div>
+        <% } %>
+        <% if (data?.footer?.phone) { %>
+          <div class="footer-box"><h3><%= data.footer.phone.title %></h3><% data.footer.phone.numbers.forEach(num => { %><p><%= num %></p><% }) %></div>
+        <% } %>
+        <% if (data?.footer?.email) { %>
+          <div class="footer-box"><h3><%= data.footer.email.title %></h3><% data.footer.email.addresses.forEach(mail => { %><p><%= mail %></p><% }) %></div>
+        <% } %>
+        <% if (data?.footer?.socials) { %>
+          <div class="footer-box">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <% data.footer.socials.forEach(social => { %>
+                <a href="<%= social.url %>" target="_blank"><i class="fab fa-<%= social.platform %>-square"></i></a>
+              <% }) %>
+            </div>
+          </div>
+        <% } %>
+      </div>
+      <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

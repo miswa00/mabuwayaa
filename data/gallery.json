@@ -1,0 +1,57 @@
+{
+  "navLinks": [
+    {
+      "href": "/mission-impact",
+      "text": "Mission & Impact"
+    },
+    {
+      "href": "/advocacy-awareness",
+      "text": "Advocacy & Awareness"
+    },
+    {
+      "href": "/engagement-support",
+      "text": "Engagement & Support"
+    },
+    {
+      "href": "/community-stories",
+      "text": "Community Stories & Voices"
+    },
+    {
+      "href": "/wildlife-habitat",
+      "text": "Wildlife & Habitat Hub"
+    },
+    {
+      "href": "/gallery",
+      "text": "Photo & Video Gallery"
+    }
+  ],
+  "title": "Photo & Video Gallery",
+  "heading": "Photo and Video Gallery",
+  "intro": "Take a closer look at the rare and remarkable Philippine crocodile and the incredible conservation work happening in Northern Luzon.",
+  "photos": [
+    {
+      "src": "/images/ubo.jpg",
+      "alt": "Philippine crocodile basking on a rock"
+    },
+    {
+      "src": "/images/basta.jpg",
+      "alt": "Community awareness program"
+    },
+    {
+      "src": "/images/ab.jpg",
+      "alt": "Natural crocodile habitat"
+    },
+    {
+      "src": "/images/vaya.jpg",
+      "alt": "Field researchers tracking crocodiles"
+    }
+  ],
+  "videos": [
+    {
+      "embed": "https://www.youtube.com/embed/YOUR_VIDEO_ID_1"
+    },
+    {
+      "embed": "https://www.youtube.com/embed/YOUR_VIDEO_ID_2"
+    }
+  ]
+}

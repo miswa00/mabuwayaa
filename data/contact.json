@@ -1,0 +1,52 @@
+{
+   "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "title": "Contact Us",
+  "heading": "Contact Mabuwaya Foundation",
+  "description": "We’d love to hear from you! Whether you have questions about the Philippine crocodile, want to collaborate, or are interested in supporting our conservation work — reach out using the details below.",
+  "info": [
+    {
+      "title": "Our Office",
+      "icon": "fas fa-map-marker-alt",
+      "type": "text",
+      "content": "San Mariano, IsabelaPhilippines 3332"
+    },
+    {
+      "title": "Phone",
+      "icon": "fas fa-phone",
+      "type": "text",
+      "content": "+63 917 123 4567+63 78 123 4567"
+    },
+    {
+      "title": "Email",
+      "icon": "fas fa-envelope",
+      "type": "text",
+      "content": "info@mabuwaya.orgmabuwaya.foundation@gmail.com"
+    },
+    {
+      "title": "Follow Us",
+      "icon": "fas fa-share-alt",
+      "type": "social",
+      "links": [
+        {
+          "icon": "fab fa-facebook-square",
+          "url": "https://www.facebook.com/mabuwaya"
+        },
+        {
+          "icon": "fab fa-twitter-square",
+          "url": "https://x.com/mabuwaya"
+        },
+        {
+          "icon": "fab fa-instagram",
+          "url": "https://www.instagram.com/mabuwayafoundation/"
+        }
+      ]
+    }
+  ]
+}

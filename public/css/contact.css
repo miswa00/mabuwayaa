@@ -1,0 +1,249 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    height: 100vh;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #34495e;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    top: 100%;
+}
+
+.dropdown-content li {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #1abc9c;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: white;
+}
+
+.dropdown .dropbtn {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown .dropbtn i {
+    margin-left: 5px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(44, 62, 80, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(4px); /* Optional: Blur effect */
+}
+
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: white;
+}
+.hero h2 {
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.hero p {
+    margin-top: 0;
+    font-size: 18px;
+    max-width: 600px;
+}
+.discover-btn {
+    background: yellow;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+}
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: rgba(0, 0, 0, 0.8);
+        width: 150px;
+        text-align: center;
+        padding: 10px;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .menu-btn {
+        display: block;
+    }
+}
+.logo a {
+    color: white;            /* Make text white */
+    text-decoration: none;   /* Remove underline */
+      /* Optional: make it bold */
+    font-size: 24px;  
+    padding: 3px;       /* Optional: increase font size */
+}
+
+.logo a:hover {
+    color: #cccccc;          /* Optional: change color on hover */
+}
+.contact-info {
+  padding: 60px 20px;
+  background-color: #f0fdf4;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e3a1a;
+  text-align: center;
+}
+
+.contact-info h2 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #166534;
+}
+
+.contact-info .description {
+  max-width: 700px;
+  margin: 0 auto 40px;
+  font-size: 1rem;
+  color: #334155;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.info-box {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 25px 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.info-box:hover {
+  transform: translateY(-5px);
+}
+
+.info-box i {
+  font-size: 2rem;
+  color: #0d9488;
+  margin-bottom: 10px;
+}
+
+.info-box h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #115e59;
+}
+
+.info-box p {
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+.social-links a {
+  font-size: 1.8rem;
+  color: #0f766e;
+  margin: 0 10px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #166534;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: white; /* adjust if your navbar text is another color */
+  padding: 5px;
+}
+
+.nav-links li a:hover {
+  color: white; /* keep text white when hovered */
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* space between text and underline */
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+}

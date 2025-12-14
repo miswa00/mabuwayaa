@@ -1,0 +1,64 @@
+{
+    "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "cepaPage": {
+    "title": "Mabuwaya CEPA Campaigns",
+    "hero": {
+      "title": "CEPA Campaigns",
+      "subtitle": "Communication • Education • Participation • Awareness"
+    },
+    "campaigns": {
+      "title": "Our CEPA Initiatives",
+      "intro": "We raise awareness and foster participation in the conservation of the Philippine crocodile and its habitat through CEPA (Communication, Education, Participation, Awareness) programs.",
+      "items": [
+        {
+          "icon": "fas fa-school",
+          "title": "School Campaigns",
+          "text": "Educational programs in schools that teach children the importance of protecting wildlife and the environment."
+        },
+        {
+          "icon": "fas fa-users",
+          "title": "Community Engagement",
+          "text": "Working with local communities to strengthen conservation awareness and promote sustainable practices."
+        },
+        {
+          "icon": "fas fa-tv",
+          "title": "Media & Outreach",
+          "text": "Radio programs, posters, and social media campaigns spreading the message of biodiversity conservation."
+        },
+        {
+          "icon": "fas fa-hand-holding-heart",
+          "title": "Youth & Volunteers",
+          "text": "Encouraging the youth and volunteers to become conservation advocates through interactive activities."
+        }
+      ]
+    },
+    "impact": {
+      "title": "Impact of Our CEPA Work",
+      "stats": [
+        {
+          "value": "50+",
+          "label": "Schools Reached"
+        },
+        {
+          "value": "10,000+",
+          "label": "People Engaged"
+        },
+        {
+          "value": "500+",
+          "label": "Awareness Materials Distributed"
+        },
+        {
+          "value": "20+",
+          "label": "Communities Partnered"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "title": "Community Outreach | Mabuwaya Foundation",
+  "hero": {
+    "title": "Community Outreach",
+    "subtitle": "Empowering local communities to protect and conserve the critically endangered Philippine crocodile."
+  },
+  "programs": {
+    "title": "Our Outreach Initiatives",
+    "list": [
+      { "icon": "fas fa-seedling", "title": "Environmental Education", "description": "We conduct workshops in schools and barangays to raise awareness about crocodile conservation and wetland protection." },
+      { "icon": "fas fa-users", "title": "Community Partnerships", "description": "Collaborating with local communities ensures sustainable conservation practices and shared stewardship of natural habitats." },
+      { "icon": "fas fa-hand-holding-heart", "title": "Livelihood Support", "description": "We help develop sustainable livelihoods that reduce dependence on destructive activities while supporting families." }
+    ]
+  },
+  "impact": {
+    "title": "Our Impact",
+    "stats": [
+      { "number": "5,000+", "label": "Students Reached" },
+      { "number": "20+", "label": "Barangays Partnered" },
+      { "number": "100+", "label": "Community Volunteers" }
+    ]
+  },
+  "cta": {
+    "title": "Be Part of the Change",
+    "text": "Together, we can protect crocodiles, wetlands, and communities for future generations.",
+    "button": { "label": "Join Us", "href": "/engagement-and-support" }
+  }
+}

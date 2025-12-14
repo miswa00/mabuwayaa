@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/habitat.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <title><%= data.title || "Habitat Assessment" %></title>
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo"><a href="/"><%= data?.site?.name || "MABUWAYA FOUNDATION" %></a></h1>
+        <ul class="nav-links" id="nav-links">
+            <% (data?.site?.nav || [
+                { href: "/mission-impact", label: "Mission & Impact" },
+                { href: "/advocacy-awareness", label: "Advocacy & Awareness" },
+                { href: "/engagement-support", label: "Engagement and Support" },
+                { href: "/community-stories", label: "Community Stories & Voices" },
+                { href: "/wildlife-habitat", label: "Wildlife & Habitat Hub" },
+                { href: "/gallery", label: "Photo & Video Gallery" }
+            ]).forEach(link => { %>
+                <li><a href="<%= link.href %>"><%= link.label %></a></li>
+            <% }) %>
+        </ul>
+        <button class="menu-btn" id="menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+</header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2><%= data.hero?.header || "Habitat Assessment" %></h2>
+      <p><%= data.hero?.text || "Exploring and protecting key habitats for the Philippine crocodile and biodiversity." %></p>
+    </div>
+  </section>
+
+  <!-- ===== INFO SECTIONS ===== -->
+  <section class="habitat-info">
+    <% (data.sections || []).forEach((section, index) => { 
+        let imagePath = "/images/placeholder.jpg"; // fallback
+        if (section.image_file) {
+          imagePath = section.image_file.startsWith("/uploads/") ? section.image_file : "/uploads/" + section.image_file;
+        } else if (section.image) {
+          if (section.image.startsWith("http")) {
+            imagePath = section.image;
+          } else if (section.image.includes("/uploads/")) {
+            imagePath = section.image;
+          } else {
+            imagePath = "/uploads/" + section.image;
+          }
+        }
+    %>
+      <div class="habitat-container <%= index % 2 !== 0 ? 'reverse' : '' %>">
+        <div class="habitat-text">
+          <h3><%= section.title %></h3>
+          <p><%= section.text %></p>
+        </div>
+        <div class="habitat-image">
+          <img src="<%= imagePath %>" alt="<%= section.title %>">
+        </div>
+      </div>
+    <% }) %>
+  </section>
+
+  <!-- ===== CALL TO ACTION ===== -->
+  <section class="cta">
+    <h2><%= data.cta?.title || "Join Us in Protecting Habitats" %></h2>
+    <p><%= data.cta?.text || "Be part of our mission to safeguard ecosystems for future generations." %></p>
+    <a href="<%= data.cta?.buttonLink || '/engagement' %>" class="cta-btn">
+      <%= data.cta?.buttonText || "Get Involved" %>
+    </a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p><%- data.footer?.office || "San Mariano, Isabela, Philippines" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p><%- data.footer?.phone || "+63 917 123 4567" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p><%- data.footer?.email || "info@mabuwaya.org" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <% (data.footer?.socials || []).forEach(social => { %>
+              <a href="<%= social.link %>" target="_blank"><i class="<%= social.icon %>"></i></a>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

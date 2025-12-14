@@ -1,0 +1,58 @@
+{
+    "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "title": "Donate",
+  "quote": "While saving our crocodiles is a daunting mission, it is not a lost cause because of you, our donors and partners, who continue to give and trust our work.",
+  "differenceHeading": "How would you like to make a difference?",
+  "donationBox": {
+    "heading": "🌿 Help the Mabuwaya Foundation Save the Philippine Crocodile! 🐊",
+    "intro": "100% of all donations will be used for crocodile conservation activities such as education campaigns and protection efforts.",
+    "instructions": "If you wish to support our mission, you can donate through the following account:",
+    "details": [
+      {
+        "label": "🏦 Account Name",
+        "value": "MABUWAYA FOUNDATION INC"
+      },
+      {
+        "label": "💳 Account Number",
+        "value": "103-3-10354095-0"
+      },
+      {
+        "label": "💱 Currency",
+        "value": "Peso"
+      },
+      {
+        "label": "📂 Account Type",
+        "value": "Savings Account"
+      },
+      {
+        "label": "🏢 Bank",
+        "value": "Metrobank (Metropolitan Bank and Trust Company)"
+      },
+      {
+        "label": "🌐 SWIFT Code",
+        "value": "MBTCPHMM"
+      },
+      {
+        "label": "📍 Branch",
+        "value": "Tuguegarao Main"
+      },
+      {
+        "label": "📞 Phone",
+        "value": "0788441955"
+      }
+    ],
+    "note": "✉️ Please send us an email once you've made a donation so we can keep you updated on how your contribution makes a difference."
+  },
+  "form": {
+    "heading": "Submit Your Donation Receipt",
+    "description": "Please upload a copy of your donation receipt so we can confirm and keep you updated on how your contribution helps.",
+    "buttonText": "Submit Receipt"
+  }
+}

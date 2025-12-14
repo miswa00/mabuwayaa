@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= data.title || "Habitat Assessment" %> | Mabuwaya Foundation</title>
+  <link rel="stylesheet" href="/css/habitat.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  
+</head>
+<body>
+
+  <!-- ===== HEADER (using your perfect navbar from habitat.css) ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/">MABUWAYA FOUNDATION</a></h1>
+      <ul class="nav-links" id="nav-links">
+        <% if (data.navLinks && data.navLinks.length) { %>
+          <% data.navLinks.forEach(link => { %>
+            <li><a href="<%= link.href %>"><%= link.text %></a></li>
+          <% }) %>
+        <% } %>
+      </ul>
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2><%= data.hero?.heading || "Habitat Assessment & Protection" %></h2>
+      <p><%= data.hero?.text || "Preserving the wetlands, rivers, and forests that are home to the critically endangered Philippine crocodile and countless species." %></p>
+    </div>
+  </section>
+
+  <!-- ===== INFO SECTIONS WITH BEAUTIFUL IMAGES ===== -->
+  <section class="habitat-info">
+    <div class="habitat-container">
+      <div class="habitat-text">
+        <h3>Wetland Restoration</h3>
+        <p>Our teams actively restore degraded wetlands by removing invasive species, replanting native vegetation, and improving water flow — creating safe sanctuaries for crocodiles and biodiversity.</p>
+      </div>
+      <div class="habitat-image">
+        <img src="/images/ubo.jpg" alt="Wetland restoration in San Mariano" />
+      </div>
+    </div>
+  </section>
+
+  <section class="habitat-info" style="background: #f9f9f9;">
+    <div class="habitat-container reverse">
+      <div class="habitat-text">
+        <h3>River & Lake Monitoring</h3>
+        <p>Regular water quality testing and habitat surveys help us track ecosystem health and respond quickly to threats like pollution and siltation.</p>
+      </div>
+      <div class="habitat-image">
+        <img src="/images/vaya.jpg" alt="River monitoring for crocodile habitat" />
+      </div>
+    </div>
+  </section>
+
+  <section class="habitat-info">
+    <div class="habitat-container">
+      <div class="habitat-text">
+        <h3>Community-Led Conservation</h3>
+        <p>Local guardians are trained to protect nesting sites and report illegal activities, ensuring long-term survival of both crocodiles and their habitats.</p>
+      </div>
+      <div class="habitat-image">
+        <img src="/images/ngo.jpeg" alt="Community guardians protecting crocodile habitat" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CALL TO ACTION ===== -->
+  <section class="cta">
+    <h2>Join the Movement</h2>
+    <p>Together, we can protect the last remaining habitats of the Philippine crocodile and secure a future where humans and wildlife thrive side by side.</p>
+    <a href="/engagement" class="cta-btn">Get Involved Today</a>
+  </section>
+
+  <!-- ===== FOOTER (your original beautiful footer) ===== -->
+  <% if (data.footer) { %>
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-box">
+            <h3><%= data.footer.office.title || "Our Office" %></h3>
+            <p><%= data.footer.office.address || "San Mariano, Isabela<br>Philippines 3332" %></p>
+          </div>
+          <div class="footer-box">
+            <h3><%= data.footer.phone.title || "Phone" %></h3>
+            <% (data.footer.phone.numbers || []).forEach(num => { %><p><%= num %></p><% }) %>
+          </div>
+          <div class="footer-box">
+            <h3><%= data.footer.email.title || "Email" %></h3>
+            <% (data.footer.email.addresses || []).forEach(mail => { %><p><%= mail %></p><% }) %>
+          </div>
+          <div class="footer-box">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <% (data.footer.socials || []).forEach(social => { %>
+                <a href="<%= social.url %>" target="_blank"><i class="fab fa-<%= social.platform %>-square"></i></a>
+              <% }) %>
+            </div>
+          </div>
+        </div>
+        <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+      </div>
+    </footer>
+  <% } %>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', () => {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

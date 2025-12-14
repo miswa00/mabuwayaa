@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title || "Mission & Impact | Mabuwaya Foundation" %></title>
+  <link rel="stylesheet" href="/css/mission.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/">MABUWAYA FOUNDATION</a></h1>
+      <ul class="nav-links" id="nav-links">
+        <% (data.navLinks || [
+          { href: "/mission", text: "Mission & Impact" },
+          { href: "/advocacy", text: "Advocacy & Awareness" },
+          { href: "/engagement", text: "Engagement & Support" },
+          { href: "/stories", text: "Community Stories & Voices" },
+          { href: "/wildlife", text: "Wildlife & Habitat Hub" },
+          { href: "/gallery", text: "Photo & Video Gallery" }
+        ]).forEach(link => { %>
+          <li><a href="<%= link.href %>"><%= link.text %></a></li>
+        <% }) %>
+      </ul>
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO HEADING ===== -->
+  <section class="hero">
+    <div class="centered-text">
+      <h1><%= data.heroHeading || "What We Do" %></h1>
+      <p><%= data.heroSubtext || "Empowering communities and protecting biodiversity for a sustainable future." %></p>
+    </div>
+  </section>
+
+  <!-- ===== HEAD START PROGRAM ===== -->
+  <section class="headstart-section">
+    <h2 class="headstart-title"><%= data.sectionHeading || "Head Start Program" %></h2>
+    <p class="headstart-text"><%- data.description || "Our Head Start Program nurtures hatchlings in a controlled environment before releasing them into the wild, ensuring better survival rates and strengthening conservation efforts." %></p>
+    
+    <% if (data.image) { %>
+      <div class="headstart-image">
+        <img src="/uploads/<%= data.image %>" alt="Head Start Program">
+      </div>
+    <% } %>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p><%- data.footer?.office || "San Mariano, Isabela<br>Philippines 3332" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p><%- data.footer?.phone || "+63 917 123 4567<br>+63 78 123 4567" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p><%- data.footer?.email || "info@mabuwaya.org<br>mabuwaya.foundation@gmail.com" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <% (data.footer?.socials || [
+              { link: "https://www.facebook.com/mabuwaya", icon: "fab fa-facebook-square" },
+              { link: "https://x.com/mabuwaya", icon: "fab fa-twitter-square" },
+              { link: "https://www.instagram.com/mabuwayafoundation/", icon: "fab fa-instagram" }
+            ]).forEach(social => { %>
+              <a href="<%= social.link %>" target="_blank"><i class="<%= social.icon %>"></i></a>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ===== SCRIPT ===== -->
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

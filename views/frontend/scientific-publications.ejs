@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= pageData.title || "Scientific Publications | Mabuwaya Foundation" %></title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/scientific-publications.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/">MABUWAYA FOUNDATION</a></h1>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="/mission">Mission & Impact</a></li>
+        <li><a href="/advocacy">Advocacy & Awareness</a></li>
+        <li><a href="/engagement">Engagement & Support</a></li>
+        <li><a href="/stories">Community Voices</a></li>
+        <li><a href="/wildlife">Wildlife & Habitat</a></li>
+        <li><a href="/gallery">Photo & Video Gallery</a></li>
+      </ul>
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2><%= pageData.heroHeading || "Scientific Publications" %></h2>
+      <p><%= pageData.heroText || "Explore peer-reviewed research and publications supported by the Mabuwaya Foundation on Philippine crocodile conservation, community-based efforts, and biodiversity studies." %></p>
+    </div>
+  </section>
+
+  <!-- ===== PUBLICATIONS ===== -->
+  <section class="publications">
+    <h2 class="section-title"><%= pageData.sectionTitle || "Featured Publications" %></h2>
+    <div class="pub-grid">
+      <% (pageData.publications || []).forEach(pub => { %>
+        <div class="pub-card">
+          <h3><%= pub.title %></h3>
+          <p><strong>Authors:</strong> <%= pub.authors %></p>
+          <p><strong>Journal:</strong> <%= pub.journal %></p>
+          <% if (pub.link) { %>
+            <a href="<%= pub.link %>" class="pub-btn" target="_blank">
+              <i class="fas fa-file-pdf"></i> Download PDF
+            </a>
+          <% } %>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta">
+    <h2><%= pageData.ctaHeading || "Interested in Collaborating?" %></h2>
+    <p><%= pageData.ctaText || "We welcome researchers and institutions to join us in advancing knowledge and conservation of the Philippine crocodile and its habitat." %></p>
+    <a href="/contact" class="cta-btn"><%= pageData.ctaBtn || "Contact Us" %></a>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p>San Mariano, Isabela<br>Philippines 3332</p>
+        </div>
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p>+63 917 123 4567<br>+63 78 123 4567</p>
+        </div>
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p>info@mabuwaya.org<br>mabuwaya.foundation@gmail.com</p>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="https://www.facebook.com/mabuwaya" target="_blank"><i class="fab fa-facebook-square"></i></a>
+            <a href="https://x.com/mabuwaya" target="_blank"><i class="fab fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/mabuwayafoundation/" target="_blank"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function () {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

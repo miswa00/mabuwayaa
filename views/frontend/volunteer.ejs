@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data?.title || "Mabuwaya | Volunteer Form" %></title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="/css/volunteer.css">
+  <link rel="stylesheet" href="/css/global-footer.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+<div class="wrap">
+
+  <!-- ===== HERO / BANNER SECTION ===== -->
+<section class="volunteer-hero"
+  style="<%=
+    'background-image: url(' +
+    (data && data.bannerImage ? `' /uploads/' + data.bannerImage` : "'/uploads/default-banner.jpg'") +
+    '); background-position: center; background-size: cover; background-repeat: no-repeat;'
+  %>">
+  <div class="overlay">
+    <h1><%= data?.heading || "Volunteer with Mabuwaya Foundation" %></h1>
+    <p><%= data?.subheading || "Help conserve the Philippine crocodile and protect Northern Sierra Madre wetlands." %></p>
+  </div>
+</section>
+
+
+  <!-- ===== VOLUNTEER FORM ===== -->
+  <form id="volunteerForm" class="card" action="/volunteer" method="POST" novalidate>
+    <div class="grid two">
+      <div>
+        <label for="firstName">First Name <span class="req">*</span></label>
+        <input id="firstName" name="firstName" autocomplete="given-name" required>
+      </div>
+      <div>
+        <label for="lastName">Last Name <span class="req">*</span></label>
+        <input id="lastName" name="lastName" autocomplete="family-name" required>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div>
+        <label for="email">Email <span class="req">*</span></label>
+        <input id="email" name="email" type="email" autocomplete="email" required>
+        <div class="hint">We’ll use this to contact you.</div>
+      </div>
+      <div>
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="e.g., +63 912 345 6789">
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div>
+        <label for="age">Age</label>
+        <input id="age" name="age" type="number" min="15" max="100">
+      </div>
+      <div>
+        <label for="location">City / Province</label>
+        <input id="location" name="location" placeholder="e.g., Ilagan City, Isabela">
+      </div>
+    </div>
+
+    <div>
+      <label for="skills">Relevant Skills</label>
+      <input id="skills" name="skills" placeholder="e.g., GIS mapping, teaching, photography">
+    </div>
+
+    <div>
+      <label>Areas of Interest <span class="req">*</span></label>
+      <div class="pillbox">
+        <% (data?.interests || [
+          "Field Surveys", 
+          "Community Outreach", 
+          "Education", 
+          "Data Entry/Research", 
+          "Social Media/Design", 
+          "Fundraising/Events"
+        ]).forEach(interest => { %>
+          <label class="pill">
+            <input type="checkbox" name="interests" value="<%= interest %>"> <%= interest %>
+          </label>
+        <% }) %>
+      </div>
+    </div>
+
+    <div class="grid two">
+      <div>
+        <label for="availability">Availability <span class="req">*</span></label>
+        <select id="availability" name="availability" required>
+          <option value="">Select…</option>
+          <option>Weekdays</option>
+          <option>Weekends</option>
+          <option>Evenings</option>
+          <option>Flexible</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button class="btn-primary" type="submit">Submit Application</button>
+      <button class="btn-secondary" type="reset">Reset</button>
+    </div>
+
+    <div id="status" class="status" aria-live="polite"></div>
+  </form>
+
+  <footer>
+    <p><%= data?.consentText || "By submitting this form, you consent to the processing of your information according to Mabuwaya’s data policy." %></p>
+  </footer>
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-box">
+        <h3>Our Office</h3>
+        <p>San Mariano, Isabela<br>Philippines 3332</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Phone</h3>
+        <p>+63 917 123 4567<br>+63 78 123 4567</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Email</h3>
+        <p>info@mabuwaya.org<br>mabuwaya.foundation@gmail.com</p>
+      </div>
+
+      <div class="footer-box">
+        <h3>Follow Us</h3>
+        <div class="social-links">
+          <a href="https://www.facebook.com/mabuwaya" target="_blank"><i class="fab fa-facebook-square"></i></a>
+          <a href="https://x.com/mabuwaya" target="_blank"><i class="fab fa-twitter-square"></i></a>
+          <a href="https://www.instagram.com/mabuwayafoundation/" target="_blank"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+    <p class="footer-bottom">© <%= new Date().getFullYear() %> Mabuwaya Foundation. All rights reserved.</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title %> | Mabuwaya Foundation</title>
+  <link rel="stylesheet" href="/css/donate.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER / NAV ===== -->
+  <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/homepage"><%= data.siteName || "Mabuwaya Foundation" %></a></h1>
+      <ul class="nav-links" id="nav-links">
+        <% (data.navLinks || []).forEach(link => { %>
+          <li><a href="<%= link.href %>"><%= link.text %></a></li>
+        <% }) %>
+      </ul>
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- ===== QUOTE SECTION ===== -->
+  <section class="quote-container">
+    <div class="quote-box">
+      <p><%= data.quote %></p>
+    </div>
+  </section>
+
+  <!-- ===== DIFFERENCE SECTION ===== -->
+  <section class="difference-section">
+    <h2><%= data.differenceHeading %></h2>
+  </section>
+
+  <!-- ===== DONATION INFO ===== -->
+  <section class="donation-info">
+    <div class="donation-box">
+      <h3><%= data.donationBox.heading %></h3>
+      <p class="donation-intro"><%= data.donationBox.intro %></p>
+      <p><%= data.donationBox.instructions %></p>
+      
+      <ul class="donation-details">
+        <% (data.donationBox.details || []).forEach(detail => { %>
+          <li><strong><%= detail.label %>:</strong> <%= detail.value %></li>
+        <% }) %>
+      </ul>
+
+      <p class="donation-note"><%= data.donationBox.note %></p>
+    </div>
+  </section>
+
+  <!-- ===== DONATION FORM ===== -->
+  <section class="donation-form">
+    <h2><%= data.form.heading %></h2>
+    <p><%= data.form.description %></p>
+
+    <!-- ✅ fixed: form action should match your Express route instead of PHP -->
+    <form action="/donate/upload-receipt" method="POST" enctype="multipart/form-data" class="receipt-form">
+      <label for="donor-name">Full Name:</label>
+      <input type="text" id="donor-name" name="donor_name" placeholder="Enter your name" required>
+
+      <label for="donor-email">Email Address:</label>
+      <input type="email" id="donor-email" name="donor_email" placeholder="Enter your email" required>
+
+      <label for="donation-amount">Donation Amount (PHP):</label>
+      <input type="number" id="donation-amount" name="donation_amount" placeholder="Enter amount" required>
+
+      <label for="receipt-file">Upload Receipt:</label>
+      <input type="file" id="receipt-file" name="receipt_file" accept=".jpg,.jpeg,.png,.pdf" required>
+
+      <button type="submit" class="submit-btn"><%= data.form.buttonText %></button>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p><%= data.footer?.office || "San Mariano, Isabela, Philippines 3332" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p><%= data.footer?.phone || "+63 917 123 4567" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p><%= data.footer?.email || "info@mabuwaya.org" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <% (data.footer?.social || []).forEach(s => { %>
+              <a href="<%= s.href %>" target="_blank"><i class="<%= s.icon %>"></i></a>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom"><%= data.footer?.copyright || "© 2025 Mabuwaya Foundation. All rights reserved." %></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

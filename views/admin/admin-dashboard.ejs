@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mabuwaya CMS Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #1abc9c;
+      --primary-dark: #16a085;
+      --bg: #f4f6f8;
+      --text-dark: #2c3e50;
+      --card-bg: #fff;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: var(--bg);
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+
+    header {
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--card-bg);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius);
+      padding: 15px 25px;
+      margin-bottom: 30px;
+    }
+
+    .header-buttons a {
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+      margin-left: 10px;
+    }
+    .header-buttons a:hover { background: var(--primary-dark); }
+
+    .section-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1100px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 25px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      position: relative;
+    }
+    .card:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
+
+    .card h3 { 
+      text-align: center; 
+      margin-bottom: 18px; 
+      font-size: 20px; 
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .toggle-btn {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--primary-dark);
+      transition: transform 0.3s ease;
+    }
+
+    .toggle-btn.active {
+      transform: rotate(90deg);
+    }
+
+    .card .buttons {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+
+    .card .buttons a {
+      flex: 1;
+      text-align: center;
+      padding: 10px;
+      border-radius: 8px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .btn-edit { background: #3498db; }
+    .btn-edit:hover { background: #2980b9; }
+
+    .btn-delete { background: #e74c3c; }
+    .btn-delete:hover { background: #c0392b; }
+
+    .subpages {
+      background: #ecfdf5;
+      border-left: 4px solid var(--primary);
+      padding: 15px;
+      margin-top: 10px;
+      border-radius: 8px;
+      display: none;
+      overflow: hidden;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .subpages.show { display: block; }
+
+    .subpages h4 {
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: var(--primary-dark);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Mabuwaya Foundation CMS</h1>
+    <div class="header-buttons">
+      <a href="/" target="_blank"><i class="fa fa-globe"></i> View Site</a>
+      <a href="/admin/logout"><i class="fa fa-sign-out-alt"></i> Logout</a>
+    </div>
+  </header>
+
+  <div class="section-cards">
+    <!-- VOLUNTEERS CARD -->
+<div class="card">
+  <h3><i class="fa-solid fa-hands-helping"></i> Volunteers</h3>
+
+  <div class="buttons">
+    <a href="/admin/volunteers" class="btn-edit">
+      <i class="fa fa-list"></i> View List
+    </a>
+
+   
+  </div>
+</div>
+
+    <% if (sections && sections.length) { %>
+      <% 
+        const grouped = {}; 
+        sections.forEach(section => {
+          const parts = section.slug.split("/");
+          if (parts.length > 1) {
+            const parent = parts[0];
+            grouped[parent] = grouped[parent] || { name: parent.replace(/-/g, " ").toUpperCase(), children: [] };
+            grouped[parent].children.push(section);
+          } else {
+            grouped[section.slug] = grouped[section.slug] || { ...section, children: [] };
+          }
+        });
+        const sorted = Object.values(grouped).sort((a,b)=>a.name.localeCompare(b.name));
+      %>
+
+      <% sorted.forEach(section => { %>
+        <div class="card">
+          <% if (section.children && section.children.length) { %>
+            <button class="toggle-btn"><i class="fa fa-chevron-right"></i></button>
+          <% } %>
+          <h3><%= section.name %></h3>
+
+          <div class="buttons">
+            <a href="/admin/edit/<%= section.slug || section.name.toLowerCase().replace(/\s+/g, '-') %>" class="btn-edit"><i class="fa fa-pen"></i> Edit</a>
+            <a href="/admin/delete/<%= section.slug || section.name.toLowerCase().replace(/\s+/g, '-') %>" class="btn-delete"><i class="fa fa-trash"></i> Delete</a>
+          </div>
+
+          <% if (section.children && section.children.length) { %>
+            <div class="subpages">
+              <h4>Subpages</h4>
+              <% section.children.forEach(child => { %>
+                <div class="buttons">
+                  <a href="/admin/edit/<%= child.slug %>" class="btn-edit"><i class="fa fa-pen"></i> <%= child.name %></a>
+                  <a href="/admin/delete/<%= child.slug %>" class="btn-delete"><i class="fa fa-trash"></i> Delete</a>
+                </div>
+              <% }) %>
+            </div>
+          <% } %>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <div>No sections found</div>
+    <% } %>
+  </div>
+
+  <script>
+    document.querySelectorAll(".toggle-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const subpages = btn.parentElement.querySelector(".subpages");
+        if (subpages) subpages.classList.toggle("show");
+        btn.classList.toggle("active");
+      });
+    });
+  </script>
+</body>
+</html>

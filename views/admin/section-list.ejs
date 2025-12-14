@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title><%= sectionName %> Items</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+    .container { max-width: 1200px; margin: 40px auto; padding: 20px; background: #fff; border-radius: 8px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+    th { background: #f0f0f0; }
+    img { max-width: 100px; border-radius: 5px; }
+    video { max-width: 150px; }
+    .btn { padding: 5px 10px; border-radius: 5px; text-decoration: none; color: #fff; margin-right: 5px; }
+    .btn-edit { background: #007bff; }
+    .btn-delete { background: #dc3545; }
+    .btn-create { background: #28a745; padding: 7px 14px; display: inline-block; margin-bottom: 15px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1><%= sectionName %> Items</h1>
+    <a href="/admin/section/<%= sectionName %>/new" class="btn btn-create">+ Create New Item</a>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Preview</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% items.forEach(item => { %>
+          <tr>
+            <td><%= item.title %></td>
+            <td>
+              <% if(item.mediaType === 'image') { %>
+                <img src="/uploads/<%= item.mediaFile %>" alt="Image">
+              <% } else if(item.mediaType === 'video') { %>
+                <video controls>
+                  <source src="/uploads/<%= item.mediaFile %>" type="video/mp4">
+                </video>
+              <% } else { %>
+                <%= item.content.substring(0,50) %>...
+              <% } %>
+            </td>
+            <td>
+              <a href="/admin/section/<%= sectionName %>/<%= item._id %>/edit" class="btn btn-edit">Edit</a>
+              <form action="/admin/section/<%= sectionName %>/<%= item._id %>/delete" method="POST" style="display:inline;">
+                <button type="submit" class="btn btn-delete">Delete</button>
+              </form>
+            </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>

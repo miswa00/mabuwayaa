@@ -1,0 +1,29 @@
+{
+  "title": "Scientific Publications | Mabuwaya Foundation",
+  "heroHeading": "Scientific Publications",
+  "heroText": "Explore peer-reviewed research and publications supported by the Mabuwaya Foundation on Philippine crocodile conservation, community-based efforts, and biodiversity studies.",
+  "sectionTitle": "Featured Publications",
+  "publications": [
+    {
+      "title": "Conservation of the Philippine Crocodile",
+      "authors": "van Weerd, M., van der Ploeg, J. (2012)",
+      "journal": "Philippine Journal of Science",
+      "link": "sample.pdf"
+    },
+    {
+      "title": "Community-Based Conservation Success",
+      "authors": "Mabuwaya Research Team (2018)",
+      "journal": "Conservation Biology",
+      "link": "sample.pdf"
+    },
+    {
+      "title": "Habitat Assessment of Crocodylus mindorensis",
+      "authors": "Santos, R., et al. (2020)",
+      "journal": "Herpetological Review",
+      "link": "sample.pdf"
+    }
+  ],
+  "ctaHeading": "Interested in Collaborating?",
+  "ctaText": "We welcome researchers and institutions to join us in advancing knowledge and conservation of the Philippine crocodile and its habitat.",
+  "ctaBtn": "Contact Us"
+}

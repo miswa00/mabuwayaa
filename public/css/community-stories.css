@@ -1,0 +1,283 @@
+/* ===== Global Styles ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  padding: 0;
+  
+}
+
+/* ===== Navbar ===== */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(44, 62, 80, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(4px); /* Optional: Blur effect */
+}
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: white; /* adjust if your navbar text is another color */
+  padding: 5px;
+}
+
+.nav-links li a:hover {
+  color: white; /* keep text white when hovered */
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* space between text and underline */
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.logo a {
+    color: white;            /* Make text white */
+    text-decoration: none;   /* Remove underline */
+      /* Optional: make it bold */
+    font-size: 24px;  
+    padding: 3px;       /* Optional: increase font size */
+}
+
+.logo a:hover {
+    color: #cccccc;          /* Optional: change color on hover */
+}
+
+
+/* Mobile Menu Button */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+.menu-btn .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background: white;
+}
+
+/* ===== Hero Section ===== */
+.hero-section {
+  background-image: url('/images/ubo.jpg');
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  text-align: center;
+  color: white;
+}
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+.hero-text p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* ===== Breaking News ===== */
+.breaking-news {
+  padding: 2rem;
+  background: #e6f5ec;
+  text-align: center;
+}
+.breaking-news h2 {
+  font-size: 2rem;
+  color: #004225;
+  margin-bottom: 1rem;
+}
+.breaking-news h3 {
+  margin-top: 1rem;
+  color: #14532d;
+}
+.breaking-news p {
+  font-size: 1.1rem;
+  color: #444;
+  line-height: 1.6;
+}
+.breaking-news a {
+  color: #004225;
+  font-weight: bold;
+  text-decoration: none;
+}
+.breaking-news a:hover {
+  text-decoration: underline;
+}
+
+/* Divider */
+.divider {
+  border: none;
+  border-top: 2px solid #cce3d0;
+  margin: 2rem auto;
+  width: 80%;
+}
+
+/* ===== News Container ===== */
+.news-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.news-card {
+  background: #fff;
+  border-radius: 12px;
+ overflow : hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.news-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+}
+.news-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-text {
+  padding: 1rem;
+}
+.card-text h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #004225;
+}
+.card-text p {
+  color: #555;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.6;
+}
+.read-more {
+  display: inline-block;
+  padding: 8px 16px;
+  background: #004225;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+.read-more:hover {
+  background: #14532d;
+}
+
+/* ===== Pagination ===== */
+.pagination {
+  text-align: center;
+  padding: 2rem;
+}
+.pagination .arrow {
+  background: #004225;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  margin: 0 1rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+.page-indicator {
+  font-size: 1rem;
+}
+
+/* ===== Footer ===== */
+.footer {
+  background: linear-gradient(135deg, #1e2a38, #2c3e50);
+  color: #f8f9fa;
+  padding: 50px 20px;
+  margin-top: 60px;
+  box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+.footer .container {
+  max-width: 1200px;
+  margin: auto;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+.footer-box h3 {
+  font-size: 20px;
+  margin-bottom: 15px;
+  color: #f1c40f;
+  font-weight: bold;
+  border-left: 4px solid #f1c40f;
+  padding-left: 10px;
+}
+.footer-box p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #dcdcdc;
+}
+/* Social Icons */
+.social-links a {
+  color: #f8f9fa;
+  font-size: 24px;
+  margin-right: 15px;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+.social-links a:hover {
+  color: #f1c40f;
+  transform: translateY(-4px) scale(1.1);
+}
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  font-size: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  padding-top: 20px;
+  color: #bbb;
+}
+.footer-bottom a {
+  color: #f1c40f;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-bottom a:hover {
+  color: #fff;
+}

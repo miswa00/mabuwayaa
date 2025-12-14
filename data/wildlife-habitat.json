@@ -1,0 +1,45 @@
+{
+  "navLinks": [
+    {
+      "href": "/mission-impact",
+      "text": "Mission & Impact"
+    },
+    {
+      "href": "/advocacy-awareness",
+      "text": "Advocacy & Awareness"
+    },
+    {
+      "href": "/engagement-support",
+      "text": "Engagement & Support"
+    },
+    {
+      "href": "/community-stories",
+      "text": "Community Stories & Voices"
+    },
+    {
+      "href": "/wildlife-habitat",
+      "text": "Wildlife & Habitat Hub"
+    },
+    {
+      "href": "/gallery",
+      "text": "Photo & Video Gallery"
+    }
+  ],
+  "title": "Wildlife & Habitat Hub",
+  "heading": "Wildlife and Habitat Hub",
+  "intro": "Explore the latest research and conservation efforts.",
+  "cards": [
+    {
+      "title": "Population Studies",
+      "description": "Ongoing research focuses on monitoring wild populations.",
+      "link": "/population",
+      "linkText": "Read More"
+    },
+    {
+      "title": "Habitat Assessment",
+      "description": "Studies aim to map and protect critical freshwater habitats.",
+      "link": "/habitat-assessment",
+      "linkText": "Explore Maps"
+    }
+  ]
+}

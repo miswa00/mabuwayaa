@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/cepa.css">
+    <title><%= data?.title || "Mabuwaya CEPA Campaigns" %></title>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <h1 class="logo"><a href="/"><%= data?.site?.name || "MABUWAYA FOUNDATION" %></a></h1>
+        <ul class="nav-links" id="nav-links">
+            <% (data?.site?.nav || [
+                { href: "/mission-impact", label: "Mission & Impact" },
+                { href: "/advocacy-awareness", label: "Advocacy & Awareness" },
+                { href: "/engagement-support", label: "Engagement and Support" },
+                { href: "/community-stories", label: "Community Stories & Voices" },
+                { href: "/wildlife-habitat", label: "Wildlife & Habitat Hub" },
+                { href: "/gallery", label: "Photo & Video Gallery" }
+            ]).forEach(link => { %>
+                <li><a href="<%= link.href %>"><%= link.label %></a></li>
+            <% }) %>
+        </ul>
+        <button class="menu-btn" id="menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+</header>
+
+<!-- HERO -->
+<section class="cepa-hero">
+    <div class="overlay"></div>
+    <div class="hero-text">
+        <h1><%= data?.hero?.title || "CEPA Campaigns" %></h1>
+        <p><%= data?.hero?.subtitle || "Communication • Education • Participation • Awareness" %></p>
+    </div>
+</section>
+
+<!-- CAMPAIGN CARDS -->
+<section class="cepa-campaigns">
+    <h2><%= data?.campaigns?.title || "Our CEPA Initiatives" %></h2>
+    <p class="intro"><%= data?.campaigns?.intro || "We raise awareness and foster participation in the conservation of the Philippine crocodile and its habitat through CEPA programs." %></p>
+    
+    <div class="campaign-grid">
+        <% (data?.campaigns?.items || [
+            { icon: "fas fa-school", title: "School Campaigns", text: "Educational programs in schools that teach children the importance of protecting wildlife and the environment." },
+            { icon: "fas fa-users", title: "Community Engagement", text: "Working with local communities to strengthen conservation awareness and promote sustainable practices." },
+            { icon: "fas fa-tv", title: "Media & Outreach", text: "Radio programs, posters, and social media campaigns spreading the message of biodiversity conservation." },
+            { icon: "fas fa-hand-holding-heart", title: "Youth & Volunteers", text: "Encouraging the youth and volunteers to become conservation advocates through interactive activities." }
+        ]).forEach(c => { %>
+            <div class="campaign-card">
+                <% if (c.image) { %>
+                    <!-- ✅ Support dynamic uploaded images -->
+                    <img src="/uploads/<%= c.image %>" alt="<%= c.title %>">
+                <% } else if (c.icon) { %>
+                    <i class="<%= c.icon %>"></i>
+                <% } %>
+                <h3><%= c.title %></h3>
+                <p><%= c.text %></p>
+            </div>
+        <% }) %>
+    </div>
+</section>
+
+<!-- IMPACT SECTION -->
+<section class="cepa-impact">
+    <h2><%= data?.impact?.title || "Impact of Our CEPA Work" %></h2>
+    <div class="impact-stats">
+        <% (data?.impact?.stats || [
+            { value: "50+", label: "Schools Reached" },
+            { value: "10,000+", label: "People Engaged" },
+            { value: "500+", label: "Awareness Materials Distributed" },
+            { value: "20+", label: "Communities Partnered" }
+        ]).forEach(stat => { %>
+            <div class="stat-box">
+                <h3><%= stat.value %></h3>
+                <p><%= stat.label %></p>
+            </div>
+        <% }) %>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-box">
+                <h3>Our Office</h3>
+                <p><%- (data?.site?.footer?.office || "San Mariano, Isabela<br>Philippines 3332") %></p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Phone</h3>
+                <p><%- (data?.site?.footer?.phone || "+63 917 123 4567<br>+63 78 123 4567") %></p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Email</h3>
+                <p><%- (data?.site?.footer?.email || "info@mabuwaya.org<br>mabuwaya.foundation@gmail.com") %></p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <% (data?.site?.footer?.social || [
+                        { href: "https://www.facebook.com/mabuwaya", icon: "fab fa-facebook-square" },
+                        { href: "https://x.com/mabuwaya", icon: "fab fa-twitter-square" },
+                        { href: "https://www.instagram.com/mabuwayafoundation/", icon: "fab fa-instagram" }
+                    ]).forEach(s => { %>
+                        <a href="<%= s.href %>" target="_blank"><i class="<%= s.icon %>"></i></a>
+                    <% }) %>
+                </div>
+            </div>
+        </div>
+        <p class="footer-bottom"><%= data?.site?.footer?.copyright || "© 2025 Mabuwaya Foundation. All rights reserved." %></p>
+    </div>
+</footer>
+
+<script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+        document.getElementById('nav-links').classList.toggle('active');
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Volunteer List</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    body { 
+      font-family: Arial, sans-serif; 
+      background: #eef2f5; 
+      margin: 0; 
+      padding: 20px; 
+    }
+
+    .container { 
+      background: #fff; 
+      padding: 30px; 
+      border-radius: 12px; 
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+      max-width: 1300px; 
+      margin: 0 auto; 
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1 { 
+      margin-top: 0; 
+      color: #2c3e50; 
+      font-size: 32px; 
+      font-weight: 700;
+      border-bottom: 3px solid #1abc9c;
+      padding-bottom: 10px;
+      display: inline-block;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .btn-back {
+      padding: 10px 18px;
+      background: #2c3e50;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    .btn-back:hover {
+      background: #1a252f;
+    }
+
+    table { 
+      width: 100%; 
+      border-collapse: collapse; 
+      margin-top: 20px; 
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    th { 
+      background: #2c3e50; 
+      color: white; 
+      padding: 14px; 
+      font-size: 15px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    td { 
+      padding: 12px; 
+      border-bottom: 1px solid #ddd; 
+      background: #fff;
+      font-size: 14px;
+    }
+
+    tr:hover td { 
+      background: #f4f7f9; 
+      transition: 0.15s;
+    }
+
+    .actions a {
+      margin-right: 12px;
+      font-weight: bold;
+    }
+
+    .actions a:hover {
+      text-decoration: underline;
+    }
+
+    .no-data { 
+      text-align: center; 
+      padding: 40px; 
+      color: #7f8c8d; 
+      font-size: 18px; 
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="top-bar">
+      <h1>Volunteer List</h1>
+
+      <!-- ✅ BACK TO DASHBOARD BUTTON -->
+      <a href="/admin" class="btn-back">
+        ← Back to Dashboard
+      </a>
+    </div>
+
+    <% if (volunteers && volunteers.length > 0) { %>
+      <table>
+        <thead>
+          <tr>  
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Location</th>
+
+            <!-- DETAILS -->
+            <th>Age</th>
+            <th>Skills</th>
+            <th>Interests</th>
+            <th>Availability</th>
+
+            <th>Joined</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% volunteers.forEach(v => { %>
+            <tr>
+              <td><%= v.firstName %> <%= v.lastName %></td>
+              <td><%= v.email || '—' %></td>
+              <td><%= v.phone || '—' %></td>
+              <td><%= v.location || '—' %></td>
+
+              <td><%= v.age || '—' %></td>
+              <td><%= v.skills || '—' %></td>
+
+              <td>
+                <% if (v.interests && v.interests.length) { %>
+                  <%= v.interests.join(", ") %>
+                <% } else { %>
+                  —
+                <% } %>
+              </td>
+
+              <td><%= v.availability || '—' %></td>
+              <td><%= new Date(v.createdAt).toLocaleDateString() %></td>
+
+              <td class="actions">
+                <a 
+                  href="/admin/volunteers/delete/<%= v._id %>" 
+                  class="delete-btn"
+                  style="color: #e74c3c; font-weight: bold; padding: 6px 10px; border: 1px solid #e74c3c; border-radius: 6px; text-decoration: none;"
+                >
+                  <i class="fa fa-trash">Delete</i> 
+                </a>
+              </td>
+
+            </tr>
+          <% }) %>
+        </tbody>
+
+      </table>
+
+    <% } else { %>
+      <div class="no-data">No volunteers found yet.</div>
+    <% } %>
+  </div>
+
+  <!-- ✅ ADDED SCRIPT FOR INSTANT DELETE AFTER CONFIRM -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const deleteButtons = document.querySelectorAll(".delete-btn");
+
+      deleteButtons.forEach(btn => {
+        btn.addEventListener("click", async function (e) {
+          e.preventDefault();
+
+          if (!confirm("Are you sure you want to permanently delete this volunteer?")) {
+            return;
+          }
+
+          const row = this.closest("tr");
+          const url = this.getAttribute("href");
+
+          try {
+            const response = await fetch(url, { method: "DELETE" });
+
+            if (response.ok) {
+              row.remove(); // 🔥 Remove row instantly
+            } else {
+              alert("Failed to delete volunteer.");
+            }
+
+          } catch (error) {
+            alert("Error deleting volunteer.");
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

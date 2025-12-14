@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><%= (data && data.title) ? data.title : "Mabuwaya Foundation" %></title>
+  <link rel="stylesheet" href="/css/homepage.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Background Video -->
+  <% 
+    let videoSrc = null;
+    if (data) {
+      if (data.video_src) {
+        videoSrc = data.video_src.startsWith('/') ? data.video_src : '/uploads/' + data.video_src;
+      } else if (data.video && (data.video.src || data.video.src_file)) {
+        const vid = data.video.src || data.video.src_file;
+        videoSrc = vid.startsWith('/') ? vid : '/uploads/' + vid;
+      }
+    }
+  %>
+  <% if (videoSrc) { %>
+    <video autoplay muted loop id="bg-video">
+      <source src="<%= videoSrc %>" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  <% } %>
+
+  <!-- Video Overlay Text -->
+  <div class="video-text">
+    <h1><%= (data && data.video && data.video.text && data.video.text.heading) ? data.video.text.heading : "Protecting the Philippine Crocodile" %></h1>
+    <p><%= (data && data.video && data.video.text && data.video.text.paragraph) ? data.video.text.paragraph : "Conservation for a sustainable future." %></p>
+  </div>
+
+  <!-- Navbar -->
+    <header>
+    <nav class="navbar">
+      <h1 class="logo"><a href="/homepage"><%= data.siteName || "MABUWAYA FOUNDATION" %></a></h1>
+      <ul class="nav-links" id="nav-links">
+        <% (data.navLinks || []).forEach(link => { %>
+          <li><a href="<%= link.href %>"><%= link.text %></a></li>
+        <% }) %>
+      </ul>
+
+      <button class="menu-btn" id="menu-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Top Footer -->
+  <footer class="footer">
+    <p><%= (data && data.topFooter) ? data.topFooter : "Working together to save the Philippine crocodile." %></p>
+  </footer>
+
+  <!-- Info Section -->
+  <% if (data && data.infoSection) {
+       const img = data.infoSection.image_file || data.infoSection.image;
+       const infoSrc = img ? (img.startsWith('/uploads/') || img.startsWith('http') ? img : '/uploads/' + img) : null;
+  %>
+    <section class="info-section">
+      <div class="info-container">
+        <div class="info-image">
+          <% if (infoSrc) { %>
+            <img src="<%= infoSrc %>" alt="<%= data.infoSection.title || '' %>" />
+          <% } %>
+        </div>
+        <div class="info-text">
+          <h2><%= data.infoSection.title || "Who We Are" %></h2>
+          <p><%= data.infoSection.text || "The Mabuwaya Foundation is dedicated to conserving the critically endangered Philippine crocodile and its habitats." %></p>
+        </div>
+      </div>
+    </section>
+  <% } %>
+
+  <section class="after-footer-bg"></section>
+
+  <!-- Quick Facts -->
+  <% if (data && data.quickFacts) { %>
+    <div class="vaya-text">
+      <h1><%= data.quickFacts.heading || "Quick Facts" %></h1>
+    </div>
+    <div class="facts-container">
+      <div class="facts-left">
+        <ul>
+          <% (data.quickFacts.leftFacts || []).forEach(fact => { %>
+            <li><%= fact %></li>
+          <% }); %>
+        </ul>
+      </div>
+      <div class="facts-right">
+        <ul>
+          <% (data.quickFacts.rightFacts || []).forEach(fact => { %>
+            <li><%= fact %></li>
+          <% }); %>
+        </ul>
+      </div>
+    </div>
+  <% } %>
+
+  <!-- Why Save Section -->
+  <% if (data && data.whySave) { %>
+    <section class="eagle-section">
+      <div class="eagle-text">
+        <h2><%= data.whySave.title || "Why Save the Philippine Crocodile?" %></h2>
+        <p><%= data.whySave.paragraph || data.whySave.text || "Learn why protecting this critically endangered species matters." %></p>
+      </div>
+
+      <div class="eagle-images">
+        <%
+          const images = [];
+          if (Array.isArray(data.whySave.images)) {
+            data.whySave.images.forEach(img => {
+              if (img && img.src) images.push(img);
+            });
+          }
+          for (let i = 0; i < 10; i++) {
+            const src = data[`whySave_images_${i}_src`];
+            const title = data[`whySave_images_${i}_title`] || `Image ${i + 1} Title`;
+            const text = data[`whySave_images_${i}_text`] || "Additional text here";
+            if (src) images.push({ src, title, text });
+          }
+        %>
+
+        <% if (images.length > 0) { %>
+          <% for (let i = 0; i < images.length; i += 2) { %>
+            <div class="image-row">
+              <% for (let j = i; j < i + 2 && j < images.length; j++) {
+                   const img = images[j];
+                   const src = (img && img.src)
+                     ? (img.src.startsWith('/') ? img.src : '/uploads/' + img.src)
+                     : null;
+              %>
+                <div class="image-container">
+                  <% if (src) { %>
+                    <img src="<%= src %>" alt="<%= img.title || '' %>" style="max-width: 100%; height: auto;" />
+                  <% } else { %>
+                    <p style="color: red;">⚠️ Missing image source</p>
+                  <% } %>
+                  <div class="text-box">
+                    <h1><%= img.title || "" %></h1>
+                    <p><%= img.text || "" %></p>
+                  </div>
+                </div>
+              <% } %>
+            </div>
+          <% } %>
+        <% } else { %>
+          <p style="color: red;">⚠️ No images found in database</p>
+        <% } %>
+      </div>
+    </section>
+  <% } %>
+
+  <!-- Bottom Footer -->
+  <% if (data && data.contact) { %>
+    <footer class="footer1">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-box">
+            <h3>Our Office</h3>
+            <p><%- (data.contact.office && data.contact.office.address ? data.contact.office.address.replace(/\n/g, "<br>") : '') %></p>
+          </div>
+          <div class="footer-box">
+            <h3>Phone</h3>
+            <p><%- (data.contact.phone && Array.isArray(data.contact.phone.numbers) ? data.contact.phone.numbers.join("<br>") : '') %></p>
+          </div>
+          <div class="footer-box">
+            <h3>Email</h3>
+            <p><%- (data.contact.email && Array.isArray(data.contact.email.addresses) ? data.contact.email.addresses.join("<br>") : '') %></p>
+          </div>
+          <div class="footer-box">
+            <h3>Follow Us</h3>
+            <div class="social-links">
+              <% if (data.contact.socials && Array.isArray(data.contact.socials.links)) {
+                   data.contact.socials.links.forEach(link => { %>
+                <a href="<%= link.url %>" target="_blank"><i class="<%= link.icon %>"></i></a>
+              <% }); } %>
+            </div>
+          </div>
+        </div>
+        <p class="footer-bottom"><%= data.contact.copyright || "© 2025 Mabuwaya Foundation" %></p>
+      </div>
+    </footer>
+  <% } %>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.getElementById('nav-links');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+      });
+    }
+  </script>
+</body>
+</html>

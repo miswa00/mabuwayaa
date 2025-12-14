@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= data.title || "Wildlife & Habitat Hub" %></title>
+
+    <!-- Fixed CSS path -->
+    <link rel="stylesheet" href="/css/wildlife-habitat.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header / Navbar -->
+    <header>
+        <nav class="navbar">
+            <h1 class="logo"><a href="/homepage">MABUWAYA FOUNDATION</a></h1>
+            <ul class="nav-links" id="nav-links">
+                <% data.navLinks.forEach(link => { %>
+                    <li><a href="<%= link.href %>"><%= link.text %></a></li>
+                <% }) %>
+            </ul>
+            <button class="menu-btn" id="menu-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Main Section -->
+    <section class="research-hub">
+        <div class="container">
+            <h2><%= data.heading || "Wildlife and Habitat Hub" %></h2>
+            <p class="intro">
+                <%= data.intro || "Explore the latest research, scientific discoveries, and fieldwork led by the Mabuwaya Foundation to protect and understand the critically endangered Philippine crocodile." %>
+            </p>
+
+            <div class="research-cards">
+                <% if (data.cards && data.cards.length > 0) { %>
+                    <% data.cards.forEach(card => { %>
+                        <div class="research-card">
+                            <h3><%= card.title %></h3>
+                            <p><%= card.description %></p>
+                            <% if (card.link) { %>
+                                <a href="<%= card.link %>"><%= card.linkText || "Read more" %></a>
+                            <% } %>
+                        </div>
+                    <% }) %>
+                <% } else { %>
+                    <p>No research items available yet. Please check back later.</p>
+                <% } %>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-box">
+                    <h3>Our Office</h3>
+                    <p>San Mariano, Isabela<br>Philippines 3332</p>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Phone</h3>
+                    <p>+63 917 123 4567<br>+63 78 123 4567</p>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Email</h3>
+                    <p>info@mabuwaya.org<br>mabuwaya.foundation@gmail.com</p>
+                </div>
+
+                <div class="footer-box">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/mabuwaya" target="_blank"><i class="fab fa-facebook-square"></i></a>
+                        <a href="https://x.com/mabuwaya" target="_blank"><i class="fab fa-twitter-square"></i></a>
+                        <a href="https://www.instagram.com/mabuwayafoundation/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <p class="footer-bottom">© 2025 Mabuwaya Foundation. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('menu-btn').addEventListener('click', function() {
+            document.getElementById('nav-links').classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

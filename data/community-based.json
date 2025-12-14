@@ -1,0 +1,39 @@
+{
+   "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "communityBasedPage": {
+    "title": "Community-Based Conservation | Mabuwaya Foundation",
+    "hero": {
+      "title": "Community-Based Conservation",
+      "subtitle": "Empowering local communities to protect the Philippine crocodile and preserve vital habitats."
+    },
+    "sections": [
+      {
+        "title": "Conservation with the People",
+        "text": "The Mabuwaya Foundation works hand-in-hand with local communities in San Mariano, Isabela. Through education, sustainable livelihood programs, and conservation agreements, we empower people to become stewards of their environment.",
+        "image": "https://images.unsplash.com/photo-1582560475091-dbf45f282ef9",
+        "alt": "Community Conservation"
+      },
+      {
+        "title": "Protecting the Philippine Crocodile",
+        "text": "By involving farmers, fisherfolk, and indigenous people, our community-based conservation programs safeguard the critically endangered Philippine crocodile while improving the lives of local residents.",
+        "image": "https://images.unsplash.com/photo-1618221606735-0c36805e4d94",
+        "alt": "Philippine crocodile conservation"
+      }
+    ],
+    "cta": {
+      "title": "Join Our Conservation Efforts",
+      "text": "Your support helps us build stronger communities and protect endangered species. Together, we can make a lasting impact.",
+      "button": {
+        "label": "Get Involved",
+        "href": "/engagement-and-support"
+      }
+    }
+  }
+}

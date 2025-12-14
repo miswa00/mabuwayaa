@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= data.title %></title>
+  <link rel="stylesheet" href="/css/community-outreach.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+ 
+<header>
+    <nav class="navbar">
+        <h1 class="logo"><a href="/"><%= data?.site?.name || "MABUWAYA FOUNDATION" %></a></h1>
+        <ul class="nav-links" id="nav-links">
+            <% (data?.site?.nav || [
+                { href: "/mission-impact", label: "Mission & Impact" },
+                { href: "/advocacy-awareness", label: "Advocacy & Awareness" },
+                { href: "/engagement-support", label: "Engagement and Support" },
+                { href: "/community-stories", label: "Community Stories & Voices" },
+                { href: "/wildlife-habitat", label: "Wildlife & Habitat Hub" },
+                { href: "/gallery", label: "Photo & Video Gallery" }
+            ]).forEach(link => { %>
+                <li><a href="<%= link.href %>"><%= link.label %></a></li>
+            <% }) %>
+        </ul>
+        <button class="menu-btn" id="menu-btn">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </nav>
+</header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero">
+    <div class="hero-text">
+      <h2><%= data.hero.title %></h2>
+      <p><%= data.hero.subtitle %></p>
+    </div>
+  </section>
+
+  <!-- ===== OUTREACH PROGRAMS ===== -->
+  <section class="outreach-programs">
+    <h2><%= data.programs.title %></h2>
+    <div class="program-grid">
+      <% data.programs.list.forEach(program => { %>
+        <div class="program-card">
+          <!-- ✅ Added dynamic image support -->
+          <% if (program.image) { %>
+            <img src="/uploads/<%= program.image %>" alt="<%= program.title %>">
+          <% } %>
+          <i class="<%= program.icon %>"></i>
+          <h3><%= program.title %></h3>
+          <p><%= program.description %></p>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- ===== IMPACT SECTION ===== -->
+  <section class="impact">
+    <h2><%= data.impact.title %></h2>
+    <div class="impact-stats">
+      <% data.impact.stats.forEach(stat => { %>
+        <div class="stat">
+          <h3><%= stat.number %></h3>
+          <p><%= stat.label %></p>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+
+  <!-- ===== CALL TO ACTION ===== -->
+  <section class="cta">
+    <h2><%= data.cta.title %></h2>
+    <p><%= data.cta.text %></p>
+   
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-box">
+          <h3>Our Office</h3>
+          <p><%= data.footer?.office || "San Mariano, Isabela, Philippines 3332" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Phone</h3>
+          <p><%= data.footer?.phone || "+63 917 123 4567" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Email</h3>
+          <p><%= data.footer?.email || "info@mabuwaya.org" %></p>
+        </div>
+        <div class="footer-box">
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <% (data.footer?.social || []).forEach(s => { %>
+              <a href="<%= s.href %>" target="_blank"><i class="<%= s.icon %>"></i></a>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+      <p class="footer-bottom"><%= data.footer?.copyright || "© 2025 Mabuwaya Foundation. All rights reserved." %></p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('menu-btn').addEventListener('click', function() {
+      document.getElementById('nav-links').classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>

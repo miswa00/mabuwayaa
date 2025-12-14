@@ -1,0 +1,56 @@
+{
+  "title": "Engagement and Support | Mabuwaya Foundation",
+  "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+
+  "section": {
+    "title": "Get Involved with the Mabuwaya Foundation",
+    "intro": "Join us in protecting the critically endangered Philippine crocodile and preserving its natural habitat. There are many ways you can make a difference!",
+    "options": [
+      {
+        "icon": "fas fa-hands-helping",
+        "title": "Volunteer",
+        "description": "Become a conservation hero! Assist in field research, habitat restoration, and community outreach programs in Northern Luzon.",
+        "buttonText": "Learn More",
+        "href": "/volunteer"
+      },
+      {
+        "icon": "fas fa-donate",
+        "title": "Donate",
+        "description": "Your donation helps fund research, education, and protection efforts for the Philippine crocodile. Every peso makes an impact.",
+        "buttonText": "Donate Now",
+        "href": "/donate"
+      }
+    ]
+  },
+
+  "footer": {
+    "office": {
+      "title": "Our Office",
+      "address": "San Mariano, Isabela<br>Philippines 3332"
+    },
+    "phone": {
+      "title": "Phone",
+      "numbers": ["+63 917 123 4567", "+63 78 123 4567"]
+    },
+    "email": {
+      "title": "Email",
+      "addresses": ["info@mabuwaya.org", "mabuwaya.foundation@gmail.com"]
+    },
+    "social": {
+      "title": "Follow Us",
+      "links": [
+        { "platform": "facebook", "url": "https://www.facebook.com/mabuwaya" },
+        { "platform": "twitter", "url": "https://x.com/mabuwaya" },
+        { "platform": "instagram", "url": "https://www.instagram.com/mabuwayafoundation/" }
+      ]
+    },
+    "copyright": "© 2025 Mabuwaya Foundation. All rights reserved."
+  }
+}

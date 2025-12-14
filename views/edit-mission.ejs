@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Mission</title>
+</head>
+<body>
+  <h2>Edit Mission Page</h2>
+  <form method="POST" action="/admin/edit/mission">
+    <label>Title:</label><br>
+    <input type="text" name="title" value="<%= mission.title %>"><br><br>
+
+    <label>Body:</label><br>
+    <textarea name="body" rows="6"><%= mission.body %></textarea><br><br>
+
+    <button type="submit">Save Changes</button>
+  </form>
+</body>
+</html>

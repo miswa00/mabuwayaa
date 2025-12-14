@@ -1,0 +1,411 @@
+/* ============================================= */
+/*  YOUR ORIGINAL STYLES (NAVBAR + HERO + ETC)  */
+/*  — KEPT 100% UNTOUCHED —                     */
+/* ============================================= */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: white; /* adjust if your navbar text is another color */
+  padding: 5px;
+}
+
+.nav-links li a:hover {
+  color: white; /* keep text white when hovered */
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* space between text and underline */
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+}
+.logo a {
+    color: white;            /* Make text white */
+    text-decoration: none;   /* Remove underline */
+      /* Optional: make it bold */
+    font-size: 24px;  
+    padding: 3px;       /* Optional: increase font size */
+}
+
+.logo a:hover {
+    color: #cccccc;          /* Optional: change color on hover */
+}
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #34495e;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 0;
+    top: 100%;
+}
+
+.dropdown-content li {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #1abc9c;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.menu-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background: white;
+}
+
+.dropdown .dropbtn {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown .dropbtn i {
+    margin-left: 5px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(44, 62, 80, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(4px); /* Optional: Blur effect */
+}
+
+@media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 60px; right: 20px; background: rgba(0,0,0,0.8); width: 150px; text-align: center; padding: 10px; }
+    .nav-links.active { display: flex; }
+    .menu-btn { display: block; }
+}
+
+/* ============================================= */
+/*  HERO & RESEARCH FOCUS (kept as you had it */
+/* ============================================= */
+
+.research-hero {
+    position: relative;
+    width: 100%;
+    height: 70vh;
+    background: url('ubo.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+.research-hero .overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom right, rgba(0,60,80,0.7), rgba(0,0,0,0.6));
+}
+.research-hero .hero-text { position: relative; z-index: 2; max-width: 800px; padding: 20px; }
+.research-hero h1 { font-size: 3rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 2px; }
+.research-hero p { font-size: 1.2rem; line-height: 1.6; }
+
+.research-content {
+    padding: 80px 50px;
+    background: linear-gradient(135deg, #f6f9fc, #e9f5f2);
+    text-align: center;
+}
+.research-content h2 { font-size: 2.5rem; margin-bottom: 15px; color: #004d40; }
+.research-content .section-intro { font-size: 1.1rem; max-width: 900px; margin: 0 auto 50px; color: #333; }
+.research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.research-card { background: rgba(255,255,255,0.7); backdrop-filter: blur(12px); border-radius: 15px; padding: 30px 20px; box-shadow: 0 8px 20px rgba(0,0,0,0.1); transition: all 0.3s ease; }
+.research-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+.research-card i { font-size: 2.5rem; color: #00897b; margin-bottom: 15px; }
+.research-card h3 { font-size: 1.5rem; color:#004d40; margin-bottom:10px; }
+.research-card p { font-size:1rem; color:#444; line-height:1.6; }
+
+/* ===================================================== */
+/*  NEW ADDED CONTENT – MODERN DARK-BLUE DESIGN        */
+/*  Matches your navbar color perfectly                */
+/* ===================================================== */
+
+/* Research Highlights List */
+.research-highlights {
+    padding: 100px 8%;
+    background: #f8fbff;
+    text-align: center;
+}
+.research-highlights h2 {
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+.research-highlights > p {
+    max-width: 900px;
+    margin: 0 auto 50px;
+    font-size: 1.15rem;
+    color: #555;
+}
+.highlights-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+    columns: 2;
+    column-gap: 50px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+.highlights-list li {
+    margin-bottom: 18px;
+    padding-left: 10px;
+    break-inside: avoid;
+}
+.highlights-list li::marker {
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+/* Timeline – Modern Blue Style */
+.research-timeline {
+    padding: 110px 8%;
+    background: linear-gradient(to bottom, #eef4ff, #ffffff);
+}
+.research-timeline h2 { font-size: 2.8rem; color: #2c3e50; text-align: center; margin-bottom: 20px; }
+.research-timeline > p { text-align: center; max-width: 800px; margin: 0 auto 70px; color: #555; }
+
+.timeline {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 60px;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 28px;
+    top: 0;
+    bottom: 0;
+    width: 5px;
+    background: #2c3e50;
+    border-radius: 5px;
+}
+.timeline-item {
+    position: relative;
+    margin-bottom: 55px;
+    padding-left: 60px;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 12px;
+    top: 8px;
+    width: 28px;
+    height: 28px;
+    background: #2c3e50;
+    border: 6px solid #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px #2c3e50;
+}
+.timeline-year {
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+.timeline-item p {
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* Stats – Dark Blue Background */
+.research-stats {
+    padding: 100px 8%;
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+}
+.research-stats .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.stat-number {
+    font-size: 4rem;
+    font-weight: 900;
+    color: #3498db;
+    line-height: 1;
+}
+.stat-label {
+    font-size: 1.3rem;
+    margin-top: 12px;
+    color: #bdc3c7;
+}
+
+/* FAQ – Clean Modern Blue */
+.research-faq {
+    padding: 110px 8%;
+    background: #ffffff;
+}
+.research-faq h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 70px;
+}
+.faq-item {
+    margin-bottom: 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.1);
+    background: white;
+}
+.faq-question {
+    width: 100%;
+    padding: 20px 30px;
+    background: #2c3e50;
+    color: white;
+    border: none;
+    text-align: left;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.3s;
+}
+.faq-question:hover { background: #34495e; }
+.faq-question::after {
+    content: '+';
+    font-size: 2rem;
+    font-weight: bold;
+    transition: transform 0.4s;
+}
+.faq-question[aria-expanded="true"]::after,
+.faq-answer.open + .faq-question::after { content: '−'; }
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    background: #f9f9f9;
+    padding: 0 30px;
+    transition: max-height 0.5s ease, padding 0.5s ease;
+}
+.faq-answer.open {
+    max-height: 800px;
+    padding: 30px;
+    border: 1px solid #eee;
+    border-top: none;
+}
+.faq-answer p {
+    margin: 0;
+    color: #444;
+    line-height: 1.7;
+}
+
+/* Publications – Modern Blue Accents */
+.research-publications {
+    padding: 110px 8%;
+    background: #f8fbff;
+}
+.research-publications h2 {
+    text-align: center;
+    font-size: 2.8rem;
+    color: #2c3e50;
+    margin-bottom: 60px;
+}
+.publications-list {
+    max-width: 1000px;
+    margin: 0 auto;
+    columns: 2;
+    column-gap: 60px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #333;
+}
+.publications-list li {
+    margin-bottom: 22px;
+    padding-left: 10px;
+    break-inside: avoid;
+}
+.publications-list li::marker { color: #3498db; font-weight: bold; }
+
+/* Footer – unchanged, still beautiful */
+.footer {
+    background: linear-gradient(135deg, #1e2a38, #2c3e50);
+    color: #f8f9fa;
+    padding: 70px 8% 30px;
+}
+.footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; max-width: 1200px; margin: 0 auto 40px; }
+.footer-box h3 { font-size: 1.4rem; margin-bottom: 20px; color: #f1c40f; border-left: 4px solid #f1c40f; padding-left: 12px; }
+.footer-box p, .footer-box a { color: #dcdcdc; line-height: 1.8; }
+.social-links a { color: #f8f9fa; font-size: 28px; margin-right: 18px; transition: all 0.3s; }
+.social-links a:hover { color: #f1c40f; transform: translateY(-5px); }
+.footer-bottom { text-align: center; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); color: #aaa; }
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .highlights-list, .publications-list { columns: 1; }
+    .timeline { padding-left: 30px; }
+    .timeline::before { left: 12px; }
+    .timeline-item { padding-left: 40px; }
+    .timeline-item::before { left: -4px; }
+}

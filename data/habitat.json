@@ -1,0 +1,43 @@
+{
+  "title": "Habitat | Mabuwaya Foundation",
+  "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "hero": {
+    "header": "Philippine Crocodile Habitat",
+    "text": "Protecting wetlands, rivers, and forests — the last safe havens of the critically endangered Philippine crocodile."
+  },
+  "sections": [
+    {
+      "title": "Wetlands & Rivers",
+      "text": "The Philippine crocodile thrives in freshwater wetlands, rivers, and small lakes in Northern Luzon. These areas provide food and shelter, yet are under threat from human activity.",
+      "image": "images/basta.jpg"
+    },
+    {
+      "title": "Forested Areas",
+      "text": "Forests surrounding rivers play a vital role in maintaining the ecological balance. Protecting trees ensures clean water and shelter for both crocodiles and local communities.",
+      "image": "ubo.jpg"
+    }
+  ],
+  "cta": {
+    "title": "Help Protect Their Habitat",
+    "text": "Every action counts. By supporting the Mabuwaya Foundation, you help conserve one of the most endangered crocodile species in the world.",
+    "buttonText": "Get Involved",
+    "buttonLink": "/engagement-support"
+  },
+  "footer": {
+    "office": "San Mariano, Isabela<br>Philippines 3332",
+    "phone": "+63 917 123 4567<br>+63 78 123 4567",
+    "email": "info@mabuwaya.org<br>mabuwaya.foundation@gmail.com",
+    "socials": [
+      { "icon": "fab fa-facebook-square", "link": "https://www.facebook.com/mabuwaya" },
+      { "icon": "fab fa-twitter-square", "link": "https://x.com/mabuwaya" },
+      { "icon": "fab fa-instagram", "link": "https://www.instagram.com/mabuwayafoundation/" }
+    ]
+  }
+}

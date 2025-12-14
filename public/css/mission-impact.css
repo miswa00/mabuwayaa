@@ -1,0 +1,265 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100vh;
+    background: url('/images/ab.jpg') no-repeat center center/cover;
+}
+
+/* ——————— LOGO FIX (ONLY EDIT YOU REQUESTED) ——————— */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(44, 62, 80, 0.7); /* Semi-transparent background */
+    backdrop-filter: blur(4px); /* Optional: Blur effect */
+}
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: white; /* adjust if your navbar text is another color */
+  padding: 5px;
+}
+
+.nav-links li a:hover {
+  color: white; /* keep text white when hovered */
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px; /* space between text and underline */
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.nav-links li a:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    color: white;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    position: relative;
+    margin: 0 10px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+.logo a {
+    color: white;            /* Make text white */
+    text-decoration: none;   /* Remove underline */
+      /* Optional: make it bold */
+    font-size: 24px;  
+    padding: 3px;       /* Optional: increase font size */
+}
+
+.logo a:hover {
+    color: #cccccc;          /* Optional: change color on hover */
+}
+
+
+.menu-btn {
+    display: none;
+    cursor: pointer;
+}
+
+.menu-btn .bar {
+    width: 28px;
+    height: 3px;
+    background: white;
+    margin: 6px 0;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 18px 5%;
+    }
+    .nav-links {
+        position: fixed;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        background: rgba(44, 62, 80, 0.98);
+        backdrop-filter: blur(15px);
+        flex-direction: column;
+        padding: 25px 0;
+        display: none;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .nav-links li {
+        margin: 12px 0;
+        text-align: center;
+    }
+    .menu-btn {
+        display: block;
+    }
+}
+
+/* ——————— YOUR ORIGINAL CONTENT (UNTOUCHED) ——————— */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    color: white;
+}
+.hero h2 {
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.hero p {
+    margin-top: 0;
+    font-size: 18px;
+    max-width: 600px;
+}
+.discover-btn {
+    background: yellow;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+}
+.gitna {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    font-size: 5.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+}
+.content {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #2c3e50;
+}
+.content strong {
+    color: #1a4d2e;
+}
+.content ol {
+    margin-top: 15px;
+    padding-left: 25px;
+}
+.content ol li {
+    margin-bottom: 10px;
+}
+.gitna {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+.content {
+    max-width: 900px;
+    padding: 10px 20px;
+    line-height: 1.7;
+    margin-top: 400px;
+}
+.history {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    line-height: 1.7;
+    margin-top: 10px;
+    color: #2c3e50;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.15rem;
+}
+.footer {
+    background: linear-gradient(135deg, #1e2a38, #2c3e50);
+    color: #f8f9fa;
+    padding: 50px 20px;
+    margin-top: 60px;
+    font-family: Arial, sans-serif;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2);
+}
+.footer .container {
+    max-width: 1200px;
+    margin: auto;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+.footer-box h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #f1c40f;
+    font-weight: bold;
+    border-left: 4px solid #f1c40f;
+    padding-left: 10px;
+}
+.footer-box p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: #dcdcdc;
+}
+.social-links a {
+    color: #f8f9fa;
+    font-size: 24px;
+    margin-right: 15px;
+    transition: all 0.3s ease-in-out;
+    display: inline-block;
+}
+.social-links a:hover {
+    color: #f1c40f;
+    transform: translateY(-4px) scale(1.1);
+}
+.footer-bottom {
+    text-align: center;
+    font-size: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 20px;
+    color: #bbb;
+}
+.footer-bottom a {
+    color: #f1c40f;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-bottom a:hover {
+    color: #fff;
+}

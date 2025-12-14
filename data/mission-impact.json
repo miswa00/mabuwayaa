@@ -1,0 +1,29 @@
+{
+  "title": "Mission & Impact | Mabuwaya Foundation",
+  "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement & Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife &  Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "intro": "The Mabuwaya Foundation is dedicated to the protection and conservation of the critically endangered Philippine crocodile (Crocodylus mindorensis) in its natural habitat.",
+  "focus": "Our conservation efforts are focused primarily in the municipalities of San Mariano and Divilacan, where the last remaining wild populations survive within and around the Northern Sierra Madre Natural Park — one of the Philippines’ most important biodiversity hotspots.",
+  "smallPopulations": "Smaller and scattered populations of the Philippine crocodile also exist in Dalupiri Island and the municipalities of Palanan, Maconacon, San Guillermo, and Benito Soliven in Isabela. Mabuwaya occasionally extends its conservation work to these areas as well.",
+  "mission": "Our mission is carried out in close collaboration with local communities, municipal and provincial governments, and national agencies—especially the Department of Environment and Natural Resources (DENR). Together, we work to protect this unique species through a shared vision for sustainable and inclusive conservation.",
+  "approach": "Mabuwaya embraces a community-based approach that fosters awareness, pride, and active involvement among local residents. The program is built on five key pillars:",
+  "pillars": [
+    "Communication, Education, and Public Awareness (CEPA): Empowering communities with knowledge about the Philippine crocodile.",
+    "Research: Studying crocodile populations, behavior, and habitat to guide our actions.",
+    "Protection: Safeguarding nesting sites, wetlands, and critical habitats from threats.",
+    "Capacity Building: Training local leaders and volunteers to take part in conservation efforts.",
+    "Population Recovery: Releasing captive-bred crocodiles and reinforcing wild populations."
+  ],
+  "history": [
+    "The Mabuwaya Foundation, established in 2003, is a Philippine-based conservation organization dedicated to protecting the critically endangered Philippine crocodile. It was formed by Filipino colleagues and Dutch volunteers, with “Mabuwaya” being a contraction of the Filipino words mabuhay (long live) and buwaya (crocodile). The foundation focuses on community-based conservation, working to change local perceptions of the crocodile, educate communities, and protect their habitat.",
+    "In its early years, the foundation adopted a community-based approach, recognizing that the protection of the Philippine crocodile would only succeed with the support of local residents. With initial funding from the Conservation Leadership Programme in 2003, Mabuwaya launched its first projects, focusing on stopping the killing of crocodiles and raising awareness about their ecological importance. Public campaigns—including posters, comic books, puppet shows, and school visits—helped transform the crocodile’s image from a feared predator into a symbol of local pride.",
+    "As the organization grew, it expanded into habitat protection by establishing crocodile sanctuaries and safeguarding wetlands. In 2005, the Head-Start Program was initiated to improve survival rates of hatchlings, raising them in captivity for 14–18 months before releasing them into the wild. Local youth and community members were also actively involved through environmental events, river clean-ups, and biodiversity activities, strengthening community ownership of conservation.",
+    "Over the years, Mabuwaya’s work has earned recognition both locally and internationally. The foundation facilitated the creation of a Wetland Management Plan in San Mariano, which was officially adopted by the local government. In May 2025, Mabuwaya received the Lagerwey Communication Excellence Award for its long-standing commitment to community engagement and biodiversity conservation. Today, the foundation is recognized as a model for community-based conservation, contributing to the slow but steady recovery of the Philippine crocodile and serving as a hub for environmental education through the Philippine Crocodile Conservation Center."
+  ]
+}

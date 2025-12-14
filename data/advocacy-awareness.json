@@ -1,0 +1,74 @@
+{
+  "title": "Advocacy & Awareness | Mabuwaya Foundation",
+  "navLinks": [
+    { "href": "/mission-impact", "text": "Mission & Impact" },
+    { "href": "/advocacy-awareness", "text": "Advocacy & Awareness" },
+    { "href": "/engagement-support", "text": "Engagement and Support" },
+    { "href": "/community-stories", "text": "Community Stories & Voices" },
+    { "href": "/wildlife-habitat", "text": "Wildlife & Habitat Hub" },
+    { "href": "/gallery", "text": "Photo & Video Gallery" }
+  ],
+  "sectionTitle": "Our Programs and Projects",
+  "intro": "The Mabuwaya Foundation implements a range of programs to protect the critically endangered Philippine crocodile and promote community-based conservation in Northern Luzon.",
+  "programs": [
+    {
+      "href": "/habitat",
+      "icon": "fas fa-leaf",
+      "title": "Habitat Conservation",
+      "description": "We protect and restore wetland habitats critical for the survival of the Philippine crocodile in its natural environment."
+    },
+    {
+      "href": "/community-outreach",
+      "icon": "fas fa-users",
+      "title": "Community Outreach",
+      "description": "We empower local communities through education, training, and sustainable livelihood programs to support conservation efforts."
+    },
+    {
+      "href": "/scientific",
+      "icon": "fas fa-flask",
+      "title": "Scientific Research",
+      "description": "We conduct field research to monitor crocodile populations, study behavior, and inform conservation strategies."
+    },
+    {
+      "href": "/cepa",
+      "icon": "fas fa-bullhorn",
+      "title": "CEPA Campaigns",
+      "description": "Our Communication, Education, and Public Awareness campaigns help raise knowledge and foster support for crocodile conservation."
+    },
+    {
+      "href": "/species",
+      "icon": "fas fa-seedling",
+      "title": "Species Recovery",
+      "description": "We reintroduce and reinforce wild populations of the Philippine crocodile through a managed breeding and release program."
+    },
+    {
+      "href": "/spread-awareness",
+      "icon": "fas fa-hands-helping",
+      "title": "Spread Awareness",
+      "description": "We engage with schools, media, and the public to spread awareness on the importance of protecting the Philippine crocodile and its ecosystem."
+    }
+  ],
+  "footer": {
+    "office": {
+      "title": "Our Office",
+      "address": "San Mariano, Isabela<br>Philippines 3332"
+    },
+    "phone": {
+      "title": "Phone",
+      "numbers": ["+63 917 123 4567", "+63 78 123 4567"]
+    },
+    "email": {
+      "title": "Email",
+      "addresses": ["info@mabuwaya.org", "mabuwaya.foundation@gmail.com"]
+    },
+    "social": {
+      "title": "Follow Us",
+      "links": [
+        { "platform": "facebook", "url": "https://www.facebook.com/mabuwaya" },
+        { "platform": "twitter", "url": "https://x.com/mabuwaya" },
+        { "platform": "instagram", "url": "https://www.instagram.com/mabuwayafoundation/" }
+      ]
+    },
+    "copyright": "© 2025 Mabuwaya Foundation. All rights reserved."
+  }
+}

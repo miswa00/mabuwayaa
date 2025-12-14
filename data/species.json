@@ -1,0 +1,29 @@
+{
+  "title": "Species Recovery | Mabuwaya Foundation",
+  "bannerHeading": "Species Recovery Programs",
+  "bannerText": "Together, we protect the critically endangered Philippine crocodile and preserve biodiversity for future generations.",
+  "sectionTitle": "Our Recovery Efforts",
+  "intro": "Mabuwaya Foundation leads programs that combine research, conservation, and community participation to recover endangered species. Through collective action, we restore balance to our ecosystems.",
+  "cards": [
+    {
+      "img": "/ngo.jpeg",
+      "title": "Philippine Crocodile",
+      "text": "From nest protection to head-start programs, we are reviving populations of the world’s rarest crocodile."
+    },
+    {
+      "img": "/ha.webp",
+      "title": "Habitat Protection",
+      "text": "Safeguarding wetlands, rivers, and forests to provide safe havens for crocodiles and other species."
+    },
+    {
+      "img": "/he.jpg",
+      "title": "Community Involvement",
+      "text": "Working hand-in-hand with local communities to promote sustainable practices and conservation values."
+    },
+    {
+      "img": "/donatepic.webp",
+      "title": "Research & Monitoring",
+      "text": "Conducting studies on population trends, nesting success, and ecological roles to guide effective conservation strategies."
+    }
+  ]
+}

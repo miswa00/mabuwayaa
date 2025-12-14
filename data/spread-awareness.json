@@ -1,0 +1,22 @@
+{
+  "title": "Spread Awareness | Mabuwaya Foundation",
+  "heading": "Spread Awareness",
+  "intro": "Help us spread the word about conserving the Philippine crocodile and protecting biodiversity in the Philippines. Your voice matters!",
+  "cards": [
+    {
+      "icon": "fas fa-bullhorn",
+      "title": "Advocate",
+      "text": "Share information about the Philippine crocodile and its habitats on social media and in your community."
+    },
+    {
+      "icon": "fas fa-people-carry",
+      "title": "Engage",
+      "text": "Join campaigns and events that raise awareness on wildlife protection and sustainable living."
+    },
+    {
+      "icon": "fas fa-share-alt",
+      "title": "Share",
+      "text": "Promote our advocacy by sharing our posts, videos, and stories with your friends and family."
+    }
+  ]
+}

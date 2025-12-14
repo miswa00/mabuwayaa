@@ -1,0 +1,23 @@
+{
+  "title": "Population Studies | Mabuwaya Foundation",
+  "heroHeading": "Population Studies",
+  "heroText": "Tracking and conserving the Philippine crocodile and its habitats",
+  "sectionHeading": "Understanding the Population",
+  "description": "The Mabuwaya Foundation conducts research to monitor the population of the critically endangered Philippine crocodile (Crocodylus mindorensis) and other key wildlife in Isabela. Data collected helps guide conservation strategies and community awareness programs.",
+  "stats": [
+    {
+      "value": "120+",
+      "text": "Crocodiles released back into the wild since 2005"
+    },
+    {
+      "value": 5,
+      "text": "Protected wetlands in San Mariano"
+    },
+    {
+      "value": "200+",
+      "text": "Community members trained in wildlife monitoring"
+    }
+  ],
+  "chartHeading": "Population Growth Over Time",
+  "chartImage": "https://whitleyaward.org/winners/taking-local-action-to-save-the-worlds-rarest-crocodile/"
+}
